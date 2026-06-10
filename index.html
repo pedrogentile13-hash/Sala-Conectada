@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala Conectada — A turma inteira organizada em um só lugar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============== LANDING PAGE ============== -->
+  <section id="landing" class="landing active-view">
+    <header class="landing-nav">
+      <div class="brand">
+        <span class="brand-logo">🎓</span>
+        <span class="brand-name">Sala Conectada</span>
+      </div>
+      <button class="btn btn-primary" data-go="dashboard">Ver protótipo</button>
+    </header>
+
+    <div class="hero">
+      <div class="hero-text">
+        <span class="hero-badge">📚 Plataforma escolar</span>
+        <h1>Sala Conectada</h1>
+        <p class="slogan">A turma inteira organizada em um só lugar.</p>
+        <p class="hero-desc">
+          O Sala Conectada é uma plataforma digital criada para centralizar tarefas,
+          provas, avisos e eventos escolares, ajudando alunos, professores e coordenação
+          a se comunicarem melhor e evitarem esquecimentos no dia a dia.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" data-go="dashboard">Ver protótipo →</button>
+          <a class="btn btn-ghost btn-lg" href="#funcionalidades">Saiba mais</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="mock-card">
+          <div class="mock-row"><span>📝 Próxima prova</span><b>História</b></div>
+          <div class="mock-row"><span>✅ Tarefas hoje</span><b>3 pendentes</b></div>
+          <div class="mock-row"><span>📣 Avisos novos</span><b>2</b></div>
+          <div class="mock-bar"><div class="mock-bar-fill" style="width:78%"></div></div>
+          <small>Organização da turma: 78%</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="landing-sections">
+      <article class="info-card">
+        <div class="info-icon">❗</div>
+        <h3>Problema</h3>
+        <p>
+          Muitas informações importantes da escola ficam espalhadas entre grupos de WhatsApp,
+          murais, falas em sala e plataformas diferentes. Isso faz com que alunos percam prazos,
+          esqueçam tarefas e fiquem desorganizados.
+        </p>
+      </article>
+      <article class="info-card">
+        <div class="info-icon">💡</div>
+        <h3>Solução</h3>
+        <p>
+          Criar um site/app simples e acessível onde os estudantes possam acompanhar tudo o que
+          precisam em um só lugar: provas, trabalhos, tarefas, avisos, eventos e sugestões para
+          melhorar a escola.
+        </p>
+      </article>
+      <article class="info-card" id="funcionalidades">
+        <div class="info-icon">⚙️</div>
+        <h3>Funcionalidades</h3>
+        <ul class="feature-list">
+          <li>📅 Calendário escolar</li>
+          <li>✅ Gestão de tarefas</li>
+          <li>📣 Mural de avisos</li>
+          <li>🎉 Agenda de eventos</li>
+          <li>💬 Caixa de sugestões</li>
+          <li>👤 Perfil do aluno</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <div class="info-icon">🌟</div>
+        <h3>Impacto na comunidade escolar</h3>
+        <p>
+          O projeto melhora a organização dos alunos, reduz dúvidas repetidas para professores
+          e fortalece a comunicação dentro da comunidade escolar.
+        </p>
+      </article>
+    </div>
+
+    <footer class="landing-footer">
+      <p>Sala Conectada • Protótipo escolar • Feito com HTML, CSS e JavaScript puro</p>
+    </footer>
+  </section>
+
+  <!-- ============== APP ============== -->
+  <div id="app" class="app">
+
+    <!-- Sidebar (desktop) -->
+    <aside class="sidebar">
+      <div class="brand brand-sidebar" data-go="landing">
+        <span class="brand-logo">🎓</span>
+        <span class="brand-name">Sala Conectada</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-nav="dashboard"><span>🏠</span> Início</button>
+        <button class="nav-item" data-nav="calendario"><span>📅</span> Calendário</button>
+        <button class="nav-item" data-nav="tarefas"><span>✅</span> Tarefas</button>
+        <button class="nav-item" data-nav="avisos"><span>📣</span> Avisos</button>
+        <button class="nav-item" data-nav="eventos"><span>🎉</span> Eventos</button>
+        <button class="nav-item" data-nav="sugestoes"><span>💬</span> Sugestões</button>
+        <button class="nav-item" data-nav="perfil"><span>👤</span> Perfil</button>
+      </nav>
+      <div class="sidebar-foot">
+        <button class="btn btn-ghost btn-block" data-go="landing">← Voltar ao site</button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content">
+
+      <!-- DASHBOARD -->
+      <section class="view active-view" data-view="dashboard">
+        <div class="page-head">
+          <div>
+            <h2>Olá, Ana! 👋</h2>
+            <p class="muted">Aqui está o resumo da sua turma hoje.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <div class="stat-card blue">
+            <div class="stat-icon">📝</div>
+            <div>
+              <span class="stat-label">Próximas provas</span>
+              <strong class="stat-value" id="stat-provas">0</strong>
+            </div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-icon">✅</div>
+            <div>
+              <span class="stat-label">Tarefas pendentes</span>
+              <strong class="stat-value" id="stat-tarefas">0</strong>
+            </div>
+          </div>
+          <div class="stat-card amber">
+            <div class="stat-icon">📣</div>
+            <div>
+              <span class="stat-label">Avisos importantes</span>
+              <strong class="stat-value" id="stat-avisos">0</strong>
+            </div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-icon">🎉</div>
+            <div>
+              <span class="stat-label">Eventos da semana</span>
+              <strong class="stat-value" id="stat-eventos">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-bottom">
+          <div class="panel">
+            <h3>Resumo da Semana</h3>
+            <ul class="summary-list" id="summary-list"></ul>
+          </div>
+          <div class="panel">
+            <h3>Nível de organização da turma</h3>
+            <div class="progress-big">
+              <div class="progress-track">
+                <div class="progress-fill" id="org-fill" style="width:78%"></div>
+              </div>
+              <div class="progress-info">
+                <span id="org-percent">78%</span>
+                <small class="muted">A turma está bem organizada! 🎯</small>
+              </div>
+            </div>
+            <div class="mini-stats">
+              <div><strong id="mini-conc">0</strong><span>Concluídas</span></div>
+              <div><strong id="mini-pend">0</strong><span>Pendentes</span></div>
+              <div><strong id="mini-sug">0</strong><span>Sugestões</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALENDÁRIO -->
+      <section class="view" data-view="calendario">
+        <div class="page-head">
+          <div>
+            <h2>Calendário Escolar 📅</h2>
+            <p class="muted">Datas importantes do bimestre.</p>
+          </div>
+        </div>
+        <div class="list" id="calendar-list"></div>
+      </section>
+
+      <!-- TAREFAS -->
+      <section class="view" data-view="tarefas">
+        <div class="page-head">
+          <div>
+            <h2>Tarefas ✅</h2>
+            <p class="muted">Acompanhe seus trabalhos e prazos.</p>
+          </div>
+        </div>
+        <div class="filters" id="task-filters">
+          <button class="chip active" data-filter="todas">Todas</button>
+          <button class="chip" data-filter="Pendente">Pendentes</button>
+          <button class="chip" data-filter="Em andamento">Em andamento</button>
+          <button class="chip" data-filter="Concluída">Concluídas</button>
+        </div>
+        <div class="list" id="task-list"></div>
+      </section>
+
+      <!-- AVISOS -->
+      <section class="view" data-view="avisos">
+        <div class="page-head">
+          <div>
+            <h2>Avisos 📣</h2>
+            <p class="muted">Comunicados da escola e da coordenação.</p>
+          </div>
+        </div>
+        <div class="list" id="notice-list"></div>
+      </section>
+
+      <!-- EVENTOS -->
+      <section class="view" data-view="eventos">
+        <div class="page-head">
+          <div>
+            <h2>Eventos 🎉</h2>
+            <p class="muted">Tudo o que vai acontecer na escola.</p>
+          </div>
+        </div>
+        <div class="list" id="event-list"></div>
+      </section>
+
+      <!-- SUGESTÕES -->
+      <section class="view" data-view="sugestoes">
+        <div class="page-head">
+          <div>
+            <h2>Sugestões 💬</h2>
+            <p class="muted">Tem uma ideia para melhorar a escola? Conte pra gente!</p>
+          </div>
+        </div>
+        <div class="suggest-wrap">
+          <form class="panel form" id="suggest-form">
+            <h3>Enviar sugestão</h3>
+            <label>Título da sugestão
+              <input type="text" id="sug-title" placeholder="Ex: Mais opções na cantina" required />
+            </label>
+            <label>Categoria
+              <select id="sug-cat">
+                <option>Convivência</option>
+                <option>Infraestrutura</option>
+                <option>Eventos</option>
+                <option>Estudos</option>
+                <option>Outros</option>
+              </select>
+            </label>
+            <label>Descrição
+              <textarea id="sug-desc" rows="4" placeholder="Explique sua ideia..." required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-block">Enviar sugestão</button>
+          </form>
+          <div class="list" id="suggest-list"></div>
+        </div>
+      </section>
+
+      <!-- PERFIL -->
+      <section class="view" data-view="perfil">
+        <div class="page-head">
+          <div>
+            <h2>Perfil 👤</h2>
+            <p class="muted">Seu desempenho e organização.</p>
+          </div>
+        </div>
+        <div class="profile">
+          <div class="panel profile-card">
+            <div class="avatar">🧑‍🎓</div>
+            <h3>Ana Beatriz Souza</h3>
+            <p class="muted">Turma 9º Ano B</p>
+            <div class="profile-stats">
+              <div><strong id="prof-tarefas">0</strong><span>Tarefas concluídas</span></div>
+              <div><strong id="prof-sug">0</strong><span>Sugestões enviadas</span></div>
+              <div><strong id="prof-org">78%</strong><span>Nível de organização</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>🏆 Conquistas</h3>
+            <ul class="achievements">
+              <li><span>🔥</span> Sequência de 7 dias organizando tarefas</li>
+              <li><span>⭐</span> Entregou 5 trabalhos no prazo</li>
+              <li><span>💬</span> Primeira sugestão enviada</li>
+              <li><span>📅</span> Nunca perdeu uma prova marcada</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom nav (mobile) -->
+    <nav class="bottom-nav">
+      <button class="bn-item active" data-nav="dashboard"><span>🏠</span><small>Início</small></button>
+      <button class="bn-item" data-nav="calendario"><span>📅</span><small>Agenda</small></button>
+      <button class="bn-item" data-nav="tarefas"><span>✅</span><small>Tarefas</small></button>
+      <button class="bn-item" data-nav="avisos"><span>📣</span><small>Avisos</small></button>
+      <button class="bn-item" data-nav="eventos"><span>🎉</span><small>Eventos</small></button>
+      <button class="bn-item" data-nav="sugestoes"><span>💬</span><small>Ideias</small></button>
+      <button class="bn-item" data-nav="perfil"><span>👤</span><small>Perfil</small></button>
+    </nav>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
