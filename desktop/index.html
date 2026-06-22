@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala Conectada — A turma inteira organizada em um só lugar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════ -->
+<div id="landing" class="landing show">
+
+  <nav class="ln-nav">
+    <div class="brand">
+      <div class="brand-icon">🎓</div>
+      <span class="brand-name">Sala Conectada</span>
+    </div>
+    <div class="ln-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#impacto">Impacto</a>
+    </div>
+    <button class="btn btn-primary" data-go="dashboard">Acessar plataforma →</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">📚 Plataforma Escolar Digital</div>
+      <h1 class="hero-title">Sala<br/>Conectada</h1>
+      <p class="hero-slogan">A turma inteira organizada em um só lugar.</p>
+      <p class="hero-desc">
+        Uma plataforma digital criada para centralizar tarefas, provas, avisos e eventos
+        escolares — melhorando a comunicação entre alunos, professores e coordenação,
+        e eliminando esquecimentos do dia a dia.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" data-go="dashboard">Começar agora →</button>
+        <a class="btn btn-outline btn-lg" href="#sobre">Saiba mais</a>
+      </div>
+      <div class="hero-features">
+        <div class="hf-item"><span>📅</span> Calendário</div>
+        <div class="hf-item"><span>✅</span> Tarefas</div>
+        <div class="hf-item"><span>📣</span> Avisos</div>
+        <div class="hf-item"><span>🎉</span> Eventos</div>
+        <div class="hf-item"><span>💬</span> Sugestões</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="app-mockup">
+        <div class="mockup-sidebar">
+          <div class="ms-brand">🎓 Sala Conectada</div>
+          <div class="ms-item active">🏠 Início</div>
+          <div class="ms-item">📅 Calendário</div>
+          <div class="ms-item">✅ Tarefas</div>
+          <div class="ms-item">📣 Avisos</div>
+          <div class="ms-item">🎉 Eventos</div>
+        </div>
+        <div class="mockup-content">
+          <div class="mc-greeting">Olá, Ana! 👋</div>
+          <div class="mc-cards">
+            <div class="mc-card blue"><span>📝</span><b>0</b><small>Provas</small></div>
+            <div class="mc-card green"><span>✅</span><b>0</b><small>Tarefas</small></div>
+          </div>
+          <div class="mc-panel">
+            <div class="mc-panel-title">Organização da turma</div>
+            <div class="mc-bar"><div class="mc-bar-fill" style="width: 0%"></div></div>
+            <div class="mc-bar-label">0% — Aguardando dados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="ln-section">
+    <div class="ln-section-header">
+      <h2>Conheça o projeto</h2>
+      <p>Entenda o problema que o Sala Conectada resolve.</p>
+    </div>
+    <div class="ln-cards" id="funcionalidades">
+      <article class="ln-card">
+        <div class="ln-card-emoji">❗</div>
+        <h3>Problema</h3>
+        <p>Informações importantes ficam espalhadas entre grupos de WhatsApp, murais, falas em sala e plataformas diferentes. Alunos perdem prazos e ficam desorganizados.</p>
+      </article>
+      <article class="ln-card">
+        <div class="ln-card-emoji">💡</div>
+        <h3>Solução</h3>
+        <p>Um site/app simples e acessível onde estudantes acompanham tudo em um só lugar: provas, trabalhos, tarefas, avisos, eventos e sugestões.</p>
+      </article>
+      <article class="ln-card">
+        <div class="ln-card-emoji">⚙️</div>
+        <h3>Funcionalidades</h3>
+        <ul class="ln-feature-list">
+          <li>📅 Calendário escolar</li>
+          <li>✅ Gestão de tarefas</li>
+          <li>📣 Mural de avisos</li>
+          <li>🎉 Agenda de eventos</li>
+          <li>💬 Caixa de sugestões</li>
+          <li>👤 Perfil do aluno</li>
+        </ul>
+      </article>
+      <article class="ln-card" id="impacto">
+        <div class="ln-card-emoji">🌟</div>
+        <h3>Impacto</h3>
+        <p>Melhora a organização dos alunos, reduz dúvidas repetidas para professores e fortalece a comunicação dentro da comunidade escolar.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="ln-footer">
+    <div class="ln-footer-brand">
+      <div class="brand-icon">🎓</div>
+      <span class="brand-name">Sala Conectada</span>
+    </div>
+    <p>Plataforma escolar digital • Feito com HTML, CSS e JavaScript puro</p>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     APLICATIVO
+═══════════════════════════════════════ -->
+<div id="app" class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div class="sb-brand" data-go="landing" title="Voltar ao site">
+        <div class="sb-logo">🎓</div>
+        <span class="sb-name">Sala Conectada</span>
+      </div>
+
+      <nav class="sb-nav">
+        <p class="sb-nav-label">Navegação</p>
+        <button class="sb-item active" data-nav="dashboard">
+          <span class="sb-icon">🏠</span>
+          <span class="sb-label">Início</span>
+        </button>
+        <button class="sb-item" data-nav="calendario">
+          <span class="sb-icon">📅</span>
+          <span class="sb-label">Calendário</span>
+        </button>
+        <button class="sb-item" data-nav="tarefas">
+          <span class="sb-icon">✅</span>
+          <span class="sb-label">Tarefas</span>
+        </button>
+        <button class="sb-item" data-nav="avisos">
+          <span class="sb-icon">📣</span>
+          <span class="sb-label">Avisos</span>
+          <span class="sb-badge" id="badge-avisos" style="display:none">0</span>
+        </button>
+        <button class="sb-item" data-nav="eventos">
+          <span class="sb-icon">🎉</span>
+          <span class="sb-label">Eventos</span>
+        </button>
+        <button class="sb-item" data-nav="sugestoes">
+          <span class="sb-icon">💬</span>
+          <span class="sb-label">Sugestões</span>
+        </button>
+        <button class="sb-item" data-nav="perfil">
+          <span class="sb-icon">👤</span>
+          <span class="sb-label">Perfil</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="sb-bottom">
+      <div class="sb-user">
+        <div class="sb-user-avatar">🧑‍🎓</div>
+        <div class="sb-user-info">
+          <strong>Ana Beatriz</strong>
+          <small>9º Ano B</small>
+        </div>
+      </div>
+      <button class="sb-exit" data-go="landing">← Sair</button>
+    </div>
+  </aside>
+
+  <!-- ÁREA PRINCIPAL -->
+  <div class="app-main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-toggle" id="sb-toggle" title="Expandir/colapsar menu">
+          ☰
+        </button>
+        <span class="topbar-title" id="topbar-title">Início</span>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" placeholder="Buscar na plataforma..." />
+        </div>
+        <button class="topbar-btn" title="Notificações">🔔</button>
+        <div class="topbar-avatar" data-nav="perfil" title="Meu perfil">🧑‍🎓</div>
+      </div>
+    </header>
+
+    <!-- VIEWS -->
+    <main class="views-container">
+
+      <!-- ── DASHBOARD ── -->
+      <section class="view show" data-view="dashboard">
+        <div class="view-header">
+          <div>
+            <h2>Olá, Ana! 👋</h2>
+            <p class="text-muted" id="dash-date">Bem-vinda de volta. Aqui está o resumo da sua turma.</p>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card accent-blue">
+            <div class="stat-icon-bg icon-blue">📝</div>
+            <div class="stat-text">
+              <span class="stat-label">Próximas provas</span>
+              <strong class="stat-value" id="stat-provas">0</strong>
+            </div>
+          </div>
+          <div class="stat-card accent-amber">
+            <div class="stat-icon-bg icon-amber">⏳</div>
+            <div class="stat-text">
+              <span class="stat-label">Tarefas pendentes</span>
+              <strong class="stat-value" id="stat-tarefas">0</strong>
+            </div>
+          </div>
+          <div class="stat-card accent-red">
+            <div class="stat-icon-bg icon-red">📣</div>
+            <div class="stat-text">
+              <span class="stat-label">Avisos importantes</span>
+              <strong class="stat-value" id="stat-avisos">0</strong>
+            </div>
+          </div>
+          <div class="stat-card accent-purple">
+            <div class="stat-icon-bg icon-purple">🎉</div>
+            <div class="stat-text">
+              <span class="stat-label">Eventos da semana</span>
+              <strong class="stat-value" id="stat-eventos">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Resumo da Semana</h3>
+            </div>
+            <div id="activity-feed">
+              <div class="empty-state">
+                <div class="es-icon">📋</div>
+                <h4>Nenhuma atividade ainda</h4>
+                <p>O resumo da semana aparecerá aqui quando houver dados cadastrados.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Organização da Turma</h3>
+            </div>
+            <div class="org-widget">
+              <div class="org-donut-wrap">
+                <svg class="org-donut" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="12"/>
+                  <circle cx="60" cy="60" r="50" fill="none"
+                    stroke="url(#org-grad)" stroke-width="12"
+                    stroke-dasharray="314.16" stroke-dashoffset="314.16"
+                    stroke-linecap="round"
+                    transform="rotate(-90 60 60)"
+                    id="org-arc"/>
+                  <defs>
+                    <linearGradient id="org-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#2563eb"/>
+                      <stop offset="100%" stop-color="#16a34a"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="org-center-label">
+                  <strong id="org-pct">0%</strong>
+                  <small>organizado</small>
+                </div>
+              </div>
+              <div class="org-stats">
+                <div class="org-stat">
+                  <strong id="mini-conc">0</strong>
+                  <span>Concluídas</span>
+                </div>
+                <div class="org-stat">
+                  <strong id="mini-pend">0</strong>
+                  <span>Pendentes</span>
+                </div>
+                <div class="org-stat">
+                  <strong id="mini-sug">0</strong>
+                  <span>Sugestões</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CALENDÁRIO ── -->
+      <section class="view" data-view="calendario">
+        <div class="view-header">
+          <div>
+            <h2>Calendário Escolar 📅</h2>
+            <p class="text-muted">Datas importantes do bimestre.</p>
+          </div>
+        </div>
+        <div id="calendar-list" class="list-container"></div>
+      </section>
+
+      <!-- ── TAREFAS ── -->
+      <section class="view" data-view="tarefas">
+        <div class="view-header">
+          <div>
+            <h2>Tarefas ✅</h2>
+            <p class="text-muted">Acompanhe seus trabalhos e prazos.</p>
+          </div>
+        </div>
+        <div class="filters-row" id="task-filters">
+          <button class="chip active" data-filter="todas">Todas</button>
+          <button class="chip" data-filter="Pendente">Pendentes</button>
+          <button class="chip" data-filter="Em andamento">Em andamento</button>
+          <button class="chip" data-filter="Concluída">Concluídas</button>
+        </div>
+        <div id="task-list" class="list-container"></div>
+      </section>
+
+      <!-- ── AVISOS ── -->
+      <section class="view" data-view="avisos">
+        <div class="view-header">
+          <div>
+            <h2>Avisos 📣</h2>
+            <p class="text-muted">Comunicados da escola e da coordenação.</p>
+          </div>
+        </div>
+        <div id="notice-list" class="list-container"></div>
+      </section>
+
+      <!-- ── EVENTOS ── -->
+      <section class="view" data-view="eventos">
+        <div class="view-header">
+          <div>
+            <h2>Eventos 🎉</h2>
+            <p class="text-muted">Tudo que vai acontecer na escola.</p>
+          </div>
+        </div>
+        <div id="event-list" class="list-container"></div>
+      </section>
+
+      <!-- ── SUGESTÕES ── -->
+      <section class="view" data-view="sugestoes">
+        <div class="view-header">
+          <div>
+            <h2>Sugestões 💬</h2>
+            <p class="text-muted">Tem uma ideia para melhorar a escola? Conte para a gente!</p>
+          </div>
+        </div>
+        <div class="suggest-layout">
+          <div class="panel suggest-form-panel">
+            <div class="panel-header">
+              <h3>Enviar nova sugestão</h3>
+            </div>
+            <form id="suggest-form" class="form-stack" novalidate>
+              <div class="form-group">
+                <label for="sug-title">Título da sugestão</label>
+                <input type="text" id="sug-title" placeholder="Ex: Mais opções na cantina" required />
+              </div>
+              <div class="form-group">
+                <label for="sug-cat">Categoria</label>
+                <select id="sug-cat">
+                  <option value="Convivência">Convivência</option>
+                  <option value="Infraestrutura">Infraestrutura</option>
+                  <option value="Eventos">Eventos</option>
+                  <option value="Estudos">Estudos</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="sug-desc">Descrição</label>
+                <textarea id="sug-desc" rows="5" placeholder="Descreva sua ideia com detalhes..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">💬 Enviar sugestão</button>
+            </form>
+          </div>
+
+          <div class="suggest-list-col">
+            <div class="suggest-list-header">
+              <h3>Sugestões da turma</h3>
+              <span class="count-chip" id="sug-count">0</span>
+            </div>
+            <div id="suggest-list" class="list-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PERFIL ── -->
+      <section class="view" data-view="perfil">
+        <div class="view-header">
+          <div>
+            <h2>Perfil 👤</h2>
+            <p class="text-muted">Seu desempenho e conquistas.</p>
+          </div>
+        </div>
+        <div class="profile-layout">
+          <div class="panel profile-card">
+            <div class="profile-avatar-wrap">
+              <div class="profile-avatar">🧑‍🎓</div>
+              <div class="profile-status">● Online</div>
+            </div>
+            <h3 class="profile-name">Ana Beatriz Souza</h3>
+            <p class="text-muted">9º Ano B · Turma 2026</p>
+            <div class="profile-divider"></div>
+            <div class="profile-stats">
+              <div class="profile-stat">
+                <strong id="prof-conc">0</strong>
+                <span>Concluídas</span>
+              </div>
+              <div class="profile-stat">
+                <strong id="prof-sug">0</strong>
+                <span>Sugestões</span>
+              </div>
+              <div class="profile-stat">
+                <strong id="prof-org">0%</strong>
+                <span>Organização</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-right">
+            <div class="panel">
+              <div class="panel-header">
+                <h3>🏆 Conquistas</h3>
+              </div>
+              <div class="achievements-grid" id="achievements-list">
+                <div class="achievement locked">
+                  <div class="ach-icon">🔥</div>
+                  <div class="ach-info">
+                    <strong>Sequência de 7 dias</strong>
+                    <small>Organize tarefas por 7 dias seguidos</small>
+                  </div>
+                  <div class="ach-lock">🔒</div>
+                </div>
+                <div class="achievement locked">
+                  <div class="ach-icon">⭐</div>
+                  <div class="ach-info">
+                    <strong>5 no prazo</strong>
+                    <small>Entregue 5 trabalhos antes do prazo</small>
+                  </div>
+                  <div class="ach-lock">🔒</div>
+                </div>
+                <div class="achievement locked">
+                  <div class="ach-icon">💬</div>
+                  <div class="ach-info">
+                    <strong>Primeira sugestão</strong>
+                    <small>Envie sua primeira sugestão para a escola</small>
+                  </div>
+                  <div class="ach-lock">🔒</div>
+                </div>
+                <div class="achievement locked">
+                  <div class="ach-icon">📅</div>
+                  <div class="ach-info">
+                    <strong>Nunca perdeu uma prova</strong>
+                    <small>Consulte o calendário regularmente</small>
+                  </div>
+                  <div class="ach-lock">🔒</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

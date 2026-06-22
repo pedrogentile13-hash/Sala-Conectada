@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#2563eb" />
+  <title>Sala Conectada</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     ONBOARDING / LANDING (mobile)
+═══════════════════════════════════════ -->
+<div id="onboarding" class="onboarding show">
+
+  <div class="ob-header">
+    <div class="ob-logo">🎓</div>
+    <h1 class="ob-title">Sala<br/>Conectada</h1>
+    <p class="ob-slogan">A turma inteira organizada em um só lugar.</p>
+    <p class="ob-desc">
+      Provas, tarefas, avisos, eventos e sugestões — tudo numa plataforma pensada para alunos.
+    </p>
+    <button class="btn-cta" data-go="dashboard">Entrar na plataforma →</button>
+  </div>
+
+  <div class="ob-features">
+    <div class="ob-card">
+      <span>📅</span>
+      <div>
+        <strong>Calendário</strong>
+        <p>Datas de provas e eventos</p>
+      </div>
+    </div>
+    <div class="ob-card">
+      <span>✅</span>
+      <div>
+        <strong>Tarefas</strong>
+        <p>Controle de trabalhos</p>
+      </div>
+    </div>
+    <div class="ob-card">
+      <span>📣</span>
+      <div>
+        <strong>Avisos</strong>
+        <p>Comunicados da escola</p>
+      </div>
+    </div>
+    <div class="ob-card">
+      <span>🎉</span>
+      <div>
+        <strong>Eventos</strong>
+        <p>Agenda de atividades</p>
+      </div>
+    </div>
+    <div class="ob-card">
+      <span>💬</span>
+      <div>
+        <strong>Sugestões</strong>
+        <p>Melhore a escola</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ob-sections">
+    <div class="ob-section-card">
+      <div class="obs-icon">❗</div>
+      <h3>Problema</h3>
+      <p>Informações ficam espalhadas entre WhatsApp, murais e plataformas diferentes. Alunos perdem prazos e ficam desorganizados.</p>
+    </div>
+    <div class="ob-section-card">
+      <div class="obs-icon">💡</div>
+      <h3>Solução</h3>
+      <p>Um app simples onde você acompanha tudo: provas, trabalhos, avisos, eventos e pode enviar sugestões para a escola.</p>
+    </div>
+    <div class="ob-section-card">
+      <div class="obs-icon">🌟</div>
+      <h3>Impacto</h3>
+      <p>Melhor organização dos alunos, menos dúvidas repetidas para professores e comunicação mais forte na escola.</p>
+    </div>
+  </div>
+
+  <div class="ob-cta-bottom">
+    <button class="btn-cta" data-go="dashboard">Começar agora →</button>
+    <p class="ob-footer-text">Sala Conectada • HTML, CSS e JavaScript</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     APLICATIVO (mobile)
+═══════════════════════════════════════ -->
+<div id="app" class="app-shell">
+
+  <!-- TOPBAR MOBILE -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <button class="topbar-back" id="back-btn" data-go="onboarding">←</button>
+        <div class="topbar-brand">
+          <span class="topbar-logo">🎓</span>
+          <span class="topbar-title" id="topbar-title">Início</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="topbar-icon-btn" title="Notificações">🔔</button>
+        <button class="topbar-avatar" data-nav="perfil">🧑‍🎓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIEWS -->
+  <main class="views" id="views-container">
+
+    <!-- ── DASHBOARD ── -->
+    <section class="view show" data-view="dashboard">
+
+      <div class="dash-hero">
+        <div class="dash-greeting">
+          <h2>Olá, Ana! 👋</h2>
+          <p id="dash-date" class="dash-date-text"></p>
+        </div>
+        <div class="dash-org-pill" id="dash-org-pill">
+          <span id="dash-org-pct">0%</span> organizado
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-tile blue">
+          <div class="st-icon">📝</div>
+          <div class="st-val" id="stat-provas">0</div>
+          <div class="st-label">Provas</div>
+        </div>
+        <div class="stat-tile amber">
+          <div class="st-icon">⏳</div>
+          <div class="st-val" id="stat-tarefas">0</div>
+          <div class="st-label">Pendentes</div>
+        </div>
+        <div class="stat-tile red">
+          <div class="st-icon">📣</div>
+          <div class="st-val" id="stat-avisos">0</div>
+          <div class="st-label">Avisos</div>
+        </div>
+        <div class="stat-tile purple">
+          <div class="st-icon">🎉</div>
+          <div class="st-val" id="stat-eventos">0</div>
+          <div class="st-label">Eventos</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Resumo da semana</div>
+        <div class="card" id="activity-feed">
+          <div class="empty-state">
+            <div class="es-icon">📋</div>
+            <p>Nenhuma atividade registrada ainda.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Organização da turma</div>
+        <div class="card progress-card">
+          <div class="pc-track">
+            <div class="pc-fill" id="org-fill" style="width: 0%"></div>
+          </div>
+          <div class="pc-footer">
+            <strong id="org-pct">0%</strong>
+            <span class="text-muted" id="org-label">Aguardando dados</span>
+          </div>
+          <div class="mini-row">
+            <div class="mini-cell">
+              <strong id="mini-conc">0</strong>
+              <span>Concluídas</span>
+            </div>
+            <div class="mini-cell">
+              <strong id="mini-pend">0</strong>
+              <span>Pendentes</span>
+            </div>
+            <div class="mini-cell">
+              <strong id="mini-sug">0</strong>
+              <span>Sugestões</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── CALENDÁRIO ── -->
+    <section class="view" data-view="calendario">
+      <div class="view-title-row">
+        <h2>Calendário 📅</h2>
+        <p class="text-muted">Datas importantes do bimestre.</p>
+      </div>
+      <div id="calendar-list" class="list-container"></div>
+    </section>
+
+    <!-- ── TAREFAS ── -->
+    <section class="view" data-view="tarefas">
+      <div class="view-title-row">
+        <h2>Tarefas ✅</h2>
+        <p class="text-muted">Seus trabalhos e prazos.</p>
+      </div>
+      <div class="chips-scroll" id="task-filters">
+        <button class="chip active" data-filter="todas">Todas</button>
+        <button class="chip" data-filter="Pendente">Pendentes</button>
+        <button class="chip" data-filter="Em andamento">Em andamento</button>
+        <button class="chip" data-filter="Concluída">Concluídas</button>
+      </div>
+      <div id="task-list" class="list-container"></div>
+    </section>
+
+    <!-- ── AVISOS ── -->
+    <section class="view" data-view="avisos">
+      <div class="view-title-row">
+        <h2>Avisos 📣</h2>
+        <p class="text-muted">Comunicados da escola.</p>
+      </div>
+      <div id="notice-list" class="list-container"></div>
+    </section>
+
+    <!-- ── EVENTOS ── -->
+    <section class="view" data-view="eventos">
+      <div class="view-title-row">
+        <h2>Eventos 🎉</h2>
+        <p class="text-muted">Agenda escolar.</p>
+      </div>
+      <div id="event-list" class="list-container"></div>
+    </section>
+
+    <!-- ── SUGESTÕES ── -->
+    <section class="view" data-view="sugestoes">
+      <div class="view-title-row">
+        <h2>Sugestões 💬</h2>
+        <p class="text-muted">Envie ideias para melhorar a escola.</p>
+      </div>
+
+      <!-- Abas: Formulário / Lista -->
+      <div class="sug-tabs">
+        <button class="sug-tab active" data-tab="form">Nova sugestão</button>
+        <button class="sug-tab" data-tab="list">Enviadas <span class="sug-count-badge" id="sug-count">0</span></button>
+      </div>
+
+      <div id="sug-tab-form" class="sug-panel show">
+        <div class="card">
+          <form id="suggest-form" class="form-stack" novalidate>
+            <div class="form-group">
+              <label for="sug-title">Título</label>
+              <input type="text" id="sug-title" placeholder="Ex: Mais opções na cantina" required />
+            </div>
+            <div class="form-group">
+              <label for="sug-cat">Categoria</label>
+              <select id="sug-cat">
+                <option value="Convivência">Convivência</option>
+                <option value="Infraestrutura">Infraestrutura</option>
+                <option value="Eventos">Eventos</option>
+                <option value="Estudos">Estudos</option>
+                <option value="Outros">Outros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sug-desc">Descrição</label>
+              <textarea id="sug-desc" rows="4" placeholder="Descreva sua ideia..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary-full">💬 Enviar sugestão</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="sug-tab-list" class="sug-panel">
+        <div id="suggest-list" class="list-container"></div>
+      </div>
+    </section>
+
+    <!-- ── PERFIL ── -->
+    <section class="view" data-view="perfil">
+      <div class="view-title-row">
+        <h2>Perfil 👤</h2>
+      </div>
+
+      <div class="profile-header card">
+        <div class="ph-avatar">🧑‍🎓</div>
+        <div class="ph-info">
+          <h3>Ana Beatriz Souza</h3>
+          <p class="text-muted">9º Ano B · Turma 2026</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Desempenho</div>
+        <div class="perf-row">
+          <div class="perf-tile">
+            <strong id="prof-conc">0</strong>
+            <span>Concluídas</span>
+          </div>
+          <div class="perf-tile">
+            <strong id="prof-sug">0</strong>
+            <span>Sugestões</span>
+          </div>
+          <div class="perf-tile">
+            <strong id="prof-org">0%</strong>
+            <span>Organização</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">🏆 Conquistas</div>
+        <div class="card achievements-list" id="achievements-list"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="bn-item active" data-nav="dashboard">
+      <span class="bn-icon">🏠</span>
+      <span class="bn-label">Início</span>
+    </button>
+    <button class="bn-item" data-nav="calendario">
+      <span class="bn-icon">📅</span>
+      <span class="bn-label">Agenda</span>
+    </button>
+    <button class="bn-item" data-nav="tarefas">
+      <span class="bn-icon">✅</span>
+      <span class="bn-label">Tarefas</span>
+    </button>
+    <button class="bn-item" data-nav="avisos">
+      <span class="bn-icon">📣</span>
+      <span class="bn-label">Avisos</span>
+    </button>
+    <button class="bn-item" data-nav="eventos">
+      <span class="bn-icon">🎉</span>
+      <span class="bn-label">Eventos</span>
+    </button>
+    <button class="bn-item" data-nav="sugestoes">
+      <span class="bn-icon">💬</span>
+      <span class="bn-label">Ideias</span>
+    </button>
+    <button class="bn-item" data-nav="perfil">
+      <span class="bn-icon">👤</span>
+      <span class="bn-label">Perfil</span>
+    </button>
+  </nav>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
