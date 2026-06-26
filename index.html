@@ -3,478 +3,381 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sala Conectada — A turma inteira organizada em um só lugar</title>
+  <title>Sala Conectada</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      LANDING PAGE
-═══════════════════════════════════════ -->
-<div id="landing" class="landing show">
+════════════════════════════════════════ -->
+<div id="landing" class="page-landing show">
 
+  <!-- NAV -->
   <nav class="ln-nav">
-    <div class="brand">
-      <div class="brand-icon">🎓</div>
-      <span class="brand-name">Sala Conectada</span>
-    </div>
+    <a class="ln-logo" href="#">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="2" width="7" height="7" rx="1.5" fill="white"/>
+          <rect x="11" y="2" width="7" height="7" rx="1.5" fill="white"/>
+          <rect x="2" y="11" width="7" height="7" rx="1.5" fill="white"/>
+          <rect x="11" y="11" width="7" height="7" rx="1.5" fill="white"/>
+        </svg>
+      </div>
+      <span>Sala Conectada</span>
+    </a>
     <div class="ln-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#impacto">Impacto</a>
+      <a href="#">Categorias</a>
+      <a href="#">Como funciona</a>
+      <a href="#">Para quem é</a>
+      <a href="#">Impacto</a>
     </div>
-    <button class="btn btn-primary" data-go="dashboard">Acessar plataforma →</button>
+    <div class="ln-actions">
+      <button class="btn-outline-dark" data-go="dashboard">Entrar</button>
+      <button class="btn-blue" data-go="dashboard">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        Ver eventos
+      </button>
+    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-badge">📚 Plataforma Escolar Digital</div>
-      <h1 class="hero-title">Sala<br/>Conectada</h1>
-      <p class="hero-slogan">A turma inteira organizada em um só lugar.</p>
-      <p class="hero-desc">
-        Uma plataforma digital criada para centralizar tarefas, provas, avisos e eventos
-        escolares — melhorando a comunicação entre alunos, professores e coordenação,
-        e eliminando esquecimentos do dia a dia.
-      </p>
-      <div class="hero-actions">
-        <button class="btn btn-primary btn-lg" data-go="dashboard">Começar agora →</button>
-        <a class="btn btn-outline btn-lg" href="#sobre">Saiba mais</a>
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        O MURAL DE EVENTOS DA SUA ESCOLA
       </div>
-      <div class="hero-features">
-        <div class="hf-item"><span>📅</span> Calendário</div>
-        <div class="hf-item"><span>✅</span> Tarefas</div>
-        <div class="hf-item"><span>📣</span> Avisos</div>
-        <div class="hf-item"><span>🎉</span> Eventos</div>
-        <div class="hf-item"><span>💬</span> Sugestões</div>
+      <h1 class="hero-title">
+        Tudo que vai<br/>
+        <span class="hero-highlight">rolar</span> na escola,<br/>
+        num só lugar.
+      </h1>
+      <p class="hero-desc">
+        Esporte, palestras, feira cultural, campanhas e muito mais.
+        Descubra, inscreva-se e nunca mais perca um evento.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-orange" data-go="dashboard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+          Explorar eventos
+        </button>
+        <button class="btn-ghost-dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+          Como funciona
+        </button>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-avatars">
+          <div class="avatar-pill blue">L</div>
+          <div class="avatar-pill rose">R</div>
+          <div class="avatar-pill amber">B</div>
+          <div class="avatar-pill purple">M</div>
+        </div>
+        <p><strong>+320 alunos</strong> do Colégio Horizonte<br/>já acompanham os eventos por aqui.</p>
       </div>
     </div>
 
     <div class="hero-right">
-      <div class="app-mockup">
-        <div class="mockup-sidebar">
-          <div class="ms-brand">🎓 Sala Conectada</div>
-          <div class="ms-item active">🏠 Início</div>
-          <div class="ms-item">📅 Calendário</div>
-          <div class="ms-item">✅ Tarefas</div>
-          <div class="ms-item">📣 Avisos</div>
-          <div class="ms-item">🎉 Eventos</div>
+      <div class="event-card-float card-orange" style="top:0;right:120px">
+        <div class="ecf-header orange-bg">
+          <span class="ecf-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ESPORTE
+          </span>
+          <div class="ecf-date"><span class="ecf-day">27</span><span class="ecf-month">JUN</span></div>
         </div>
-        <div class="mockup-content">
-          <div class="mc-greeting">Olá, Ana! 👋</div>
-          <div class="mc-cards">
-            <div class="mc-card blue"><span>📝</span><b>0</b><small>Provas</small></div>
-            <div class="mc-card green"><span>✅</span><b>0</b><small>Tarefas</small></div>
-          </div>
-          <div class="mc-panel">
-            <div class="mc-panel-title">Organização da turma</div>
-            <div class="mc-bar"><div class="mc-bar-fill" style="width: 0%"></div></div>
-            <div class="mc-bar-label">0% — Aguardando dados</div>
-          </div>
+        <div class="ecf-body">
+          <h4>Interclasse 2026</h4>
+          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Quadra poliesportiva</p>
+          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 08h00 · 142 inscritos</p>
+        </div>
+      </div>
+
+      <div class="event-card-float card-purple" style="top:80px;right:0">
+        <div class="ecf-header purple-bg">
+          <span class="ecf-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            CULTURAL
+          </span>
+          <div class="ecf-date"><span class="ecf-day">04</span><span class="ecf-month">JUL</span></div>
+        </div>
+        <div class="ecf-body">
+          <h4>Feira Cultural</h4>
+          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Pátio principal</p>
+          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 09h00 · aberto a todos</p>
+        </div>
+      </div>
+
+      <div class="event-card-float card-teal" style="bottom:80px;right:60px">
+        <div class="ecf-header teal-bg">
+          <span class="ecf-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            PALESTRA
+          </span>
+          <div class="ecf-date"><span class="ecf-day">19</span><span class="ecf-month">JUN</span></div>
+        </div>
+        <div class="ecf-body">
+          <h4>Saúde mental na adolescência</h4>
+          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Auditório · 10h00</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sobre" class="ln-section">
-    <div class="ln-section-header">
-      <h2>Conheça o projeto</h2>
-      <p>Entenda o problema que o Sala Conectada resolve.</p>
-    </div>
-    <div class="ln-cards" id="funcionalidades">
-      <article class="ln-card">
-        <div class="ln-card-emoji">❗</div>
-        <h3>Problema</h3>
-        <p>Informações importantes ficam espalhadas entre grupos de WhatsApp, murais, falas em sala e plataformas diferentes. Alunos perdem prazos e ficam desorganizados.</p>
-      </article>
-      <article class="ln-card">
-        <div class="ln-card-emoji">💡</div>
-        <h3>Solução</h3>
-        <p>Um site/app simples e acessível onde estudantes acompanham tudo em um só lugar: provas, trabalhos, tarefas, avisos, eventos e sugestões.</p>
-      </article>
-      <article class="ln-card">
-        <div class="ln-card-emoji">⚙️</div>
-        <h3>Funcionalidades</h3>
-        <ul class="ln-feature-list">
-          <li>📅 Calendário escolar</li>
-          <li>✅ Gestão de tarefas</li>
-          <li>📣 Mural de avisos</li>
-          <li>🎉 Agenda de eventos</li>
-          <li>💬 Caixa de sugestões</li>
-          <li>👤 Perfil do aluno</li>
-        </ul>
-      </article>
-      <article class="ln-card" id="impacto">
-        <div class="ln-card-emoji">🌟</div>
-        <h3>Impacto</h3>
-        <p>Melhora a organização dos alunos, reduz dúvidas repetidas para professores e fortalece a comunicação dentro da comunidade escolar.</p>
-      </article>
-    </div>
-  </section>
+  <!-- CATEGORIES SCROLL -->
+  <div class="cat-strip">
+    <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Interclasse</div>
+    <div class="cat-sep">•</div>
+    <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Esporte</div>
+    <div class="cat-sep">•</div>
+    <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Palestras</div>
+    <div class="cat-sep">•</div>
+    <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Feira Cultural</div>
+    <div class="cat-sep">•</div>
+    <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Campanhas</div>
+  </div>
 
   <footer class="ln-footer">
-    <div class="ln-footer-brand">
-      <div class="brand-icon">🎓</div>
-      <span class="brand-name">Sala Conectada</span>
-    </div>
-    <p>Plataforma escolar digital • Feito com HTML, CSS e JavaScript puro</p>
+    <p>© 2026 Sala Conectada · Plataforma escolar</p>
   </footer>
 </div>
 
 
-<!-- ═══════════════════════════════════════
-     APLICATIVO
-═══════════════════════════════════════ -->
-<div id="app" class="app-shell">
+<!-- ════════════════════════════════════════
+     APP
+════════════════════════════════════════ -->
+<div id="app" class="page-app">
 
   <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sb-top">
-      <div class="sb-brand" data-go="landing" title="Voltar ao site">
-        <div class="sb-logo">🎓</div>
-        <span class="sb-name">Sala Conectada</span>
+  <aside class="sidebar">
+    <div class="sb-brand">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="2" width="7" height="7" rx="1.5" fill="white"/>
+          <rect x="11" y="2" width="7" height="7" rx="1.5" fill="white"/>
+          <rect x="2" y="11" width="7" height="7" rx="1.5" fill="white"/>
+          <rect x="11" y="11" width="7" height="7" rx="1.5" fill="white"/>
+        </svg>
       </div>
-
-      <nav class="sb-nav">
-        <p class="sb-nav-label">Navegação</p>
-        <button class="sb-item active" data-nav="dashboard">
-          <span class="sb-icon">🏠</span>
-          <span class="sb-label">Início</span>
-        </button>
-        <button class="sb-item" data-nav="calendario">
-          <span class="sb-icon">📅</span>
-          <span class="sb-label">Calendário</span>
-        </button>
-        <button class="sb-item" data-nav="tarefas">
-          <span class="sb-icon">✅</span>
-          <span class="sb-label">Tarefas</span>
-        </button>
-        <button class="sb-item" data-nav="avisos">
-          <span class="sb-icon">📣</span>
-          <span class="sb-label">Avisos</span>
-          <span class="sb-badge" id="badge-avisos" style="display:none">0</span>
-        </button>
-        <button class="sb-item" data-nav="eventos">
-          <span class="sb-icon">🎉</span>
-          <span class="sb-label">Eventos</span>
-        </button>
-        <button class="sb-item" data-nav="sugestoes">
-          <span class="sb-icon">💬</span>
-          <span class="sb-label">Sugestões</span>
-        </button>
-        <button class="sb-item" data-nav="perfil">
-          <span class="sb-icon">👤</span>
-          <span class="sb-label">Perfil</span>
-        </button>
-      </nav>
+      <div class="sb-brand-text">
+        <span class="sb-brand-name">Sala Conectada</span>
+        <span class="sb-brand-sub">A turma toda em um só lugar</span>
+      </div>
     </div>
 
-    <div class="sb-bottom">
-      <div class="sb-user">
-        <div class="sb-user-avatar">🧑‍🎓</div>
-        <div class="sb-user-info">
-          <strong>Ana Beatriz</strong>
-          <small>9º Ano B</small>
-        </div>
+    <div class="sb-section-label">MENU</div>
+    <nav class="sb-nav">
+      <button class="sb-item active" data-nav="dashboard">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </button>
+      <button class="sb-item" data-nav="calendario">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Calendário
+      </button>
+      <button class="sb-item" data-nav="tarefas">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Tarefas
+        <span class="sb-badge" id="badge-tarefas" style="display:none">0</span>
+      </button>
+      <button class="sb-item" data-nav="avisos">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        Avisos
+      </button>
+      <button class="sb-item" data-nav="eventos">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Eventos
+      </button>
+      <button class="sb-item" data-nav="sugestoes">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><line x1="12" y1="22" x2="12" y2="18"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/></svg>
+        Sugestões
+      </button>
+    </nav>
+
+    <div class="sb-section-label" style="margin-top:24px">VOCÊ</div>
+    <nav class="sb-nav">
+      <button class="sb-item" data-nav="perfil">
+        <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Meu Perfil
+      </button>
+    </nav>
+
+    <div class="sb-user-card">
+      <div class="sb-user-avatar">HM</div>
+      <div class="sb-user-info">
+        <span class="sb-user-name">Helena Martins</span>
+        <span class="sb-user-role">Aluna · 9º Ano B</span>
       </div>
-      <button class="sb-exit" data-go="landing">← Sair</button>
     </div>
   </aside>
 
-  <!-- ÁREA PRINCIPAL -->
+  <!-- MAIN -->
   <div class="app-main">
-
-    <!-- TOPBAR -->
     <header class="topbar">
       <div class="topbar-left">
-        <button class="topbar-toggle" id="sb-toggle" title="Expandir/colapsar menu">
-          ☰
-        </button>
-        <span class="topbar-title" id="topbar-title">Início</span>
+        <h1 class="topbar-title" id="topbar-title">Dashboard</h1>
+        <p class="topbar-sub" id="topbar-sub">Resumo da sua semana escolar</p>
       </div>
       <div class="topbar-right">
-        <div class="topbar-search">
-          <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" placeholder="Buscar na plataforma..." />
+        <div class="topbar-date">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span id="topbar-date-text"></span>
         </div>
-        <button class="topbar-btn" title="Notificações">🔔</button>
-        <div class="topbar-avatar" data-nav="perfil" title="Meu perfil">🧑‍🎓</div>
+        <button class="topbar-icon-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
+        <button class="topbar-icon-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
       </div>
     </header>
 
-    <!-- VIEWS -->
-    <main class="views-container">
+    <main class="view-container">
 
-      <!-- ── DASHBOARD ── -->
+      <!-- DASHBOARD -->
       <section class="view show" data-view="dashboard">
-        <div class="view-header">
-          <div>
-            <h2>Olá, Ana! 👋</h2>
-            <p class="text-muted" id="dash-date">Bem-vinda de volta. Aqui está o resumo da sua turma.</p>
-          </div>
-        </div>
-
         <div class="stat-grid">
-          <div class="stat-card accent-blue">
-            <div class="stat-icon-bg icon-blue">📝</div>
-            <div class="stat-text">
-              <span class="stat-label">Próximas provas</span>
-              <strong class="stat-value" id="stat-provas">0</strong>
-            </div>
+          <div class="stat-card">
+            <div class="stat-icon-wrap violet"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div><span class="stat-label">Próximas provas</span><strong class="stat-val" id="stat-provas">0</strong></div>
           </div>
-          <div class="stat-card accent-amber">
-            <div class="stat-icon-bg icon-amber">⏳</div>
-            <div class="stat-text">
-              <span class="stat-label">Tarefas pendentes</span>
-              <strong class="stat-value" id="stat-tarefas">0</strong>
-            </div>
+          <div class="stat-card">
+            <div class="stat-icon-wrap orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><span class="stat-label">Tarefas pendentes</span><strong class="stat-val" id="stat-tarefas">0</strong></div>
           </div>
-          <div class="stat-card accent-red">
-            <div class="stat-icon-bg icon-red">📣</div>
-            <div class="stat-text">
-              <span class="stat-label">Avisos importantes</span>
-              <strong class="stat-value" id="stat-avisos">0</strong>
-            </div>
+          <div class="stat-card">
+            <div class="stat-icon-wrap rose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+            <div><span class="stat-label">Avisos importantes</span><strong class="stat-val" id="stat-avisos">0</strong></div>
           </div>
-          <div class="stat-card accent-purple">
-            <div class="stat-icon-bg icon-purple">🎉</div>
-            <div class="stat-text">
-              <span class="stat-label">Eventos da semana</span>
-              <strong class="stat-value" id="stat-eventos">0</strong>
-            </div>
+          <div class="stat-card">
+            <div class="stat-icon-wrap teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div><span class="stat-label">Eventos da semana</span><strong class="stat-val" id="stat-eventos">0</strong></div>
           </div>
         </div>
 
-        <div class="dash-grid">
+        <div class="dash-row">
           <div class="panel">
-            <div class="panel-header">
-              <h3>Resumo da Semana</h3>
-            </div>
+            <div class="panel-header"><h3>Resumo da semana</h3></div>
             <div id="activity-feed">
-              <div class="empty-state">
-                <div class="es-icon">📋</div>
-                <h4>Nenhuma atividade ainda</h4>
-                <p>O resumo da semana aparecerá aqui quando houver dados cadastrados.</p>
-              </div>
+              <div class="empty-state"><div class="es-icon">📋</div><h4>Nenhuma atividade ainda</h4><p>Os dados vão aparecer aqui quando forem cadastrados.</p></div>
             </div>
           </div>
-
           <div class="panel">
-            <div class="panel-header">
-              <h3>Organização da Turma</h3>
-            </div>
-            <div class="org-widget">
-              <div class="org-donut-wrap">
-                <svg class="org-donut" viewBox="0 0 120 120">
-                  <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="12"/>
-                  <circle cx="60" cy="60" r="50" fill="none"
-                    stroke="url(#org-grad)" stroke-width="12"
-                    stroke-dasharray="314.16" stroke-dashoffset="314.16"
-                    stroke-linecap="round"
-                    transform="rotate(-90 60 60)"
-                    id="org-arc"/>
-                  <defs>
-                    <linearGradient id="org-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#2563eb"/>
-                      <stop offset="100%" stop-color="#16a34a"/>
-                    </linearGradient>
-                  </defs>
+            <div class="panel-header"><h3>Organização da turma</h3></div>
+            <div class="org-wrap">
+              <div class="org-ring-wrap">
+                <svg class="org-ring" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#E5E7EB" stroke-width="10"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="url(#rg)" stroke-width="10"
+                    stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke-linecap="round"
+                    transform="rotate(-90 60 60)" id="org-arc"/>
+                  <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#6366F1"/>
+                    <stop offset="100%" stop-color="#8B5CF6"/>
+                  </linearGradient></defs>
                 </svg>
-                <div class="org-center-label">
-                  <strong id="org-pct">0%</strong>
-                  <small>organizado</small>
-                </div>
+                <div class="org-ring-label"><strong id="org-pct">0%</strong><small>organizado</small></div>
               </div>
               <div class="org-stats">
-                <div class="org-stat">
-                  <strong id="mini-conc">0</strong>
-                  <span>Concluídas</span>
-                </div>
-                <div class="org-stat">
-                  <strong id="mini-pend">0</strong>
-                  <span>Pendentes</span>
-                </div>
-                <div class="org-stat">
-                  <strong id="mini-sug">0</strong>
-                  <span>Sugestões</span>
-                </div>
+                <div class="org-stat"><strong id="mini-conc">0</strong><span>Concluídas</span></div>
+                <div class="org-stat"><strong id="mini-pend">0</strong><span>Pendentes</span></div>
+                <div class="org-stat"><strong id="mini-sug">0</strong><span>Sugestões</span></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ── CALENDÁRIO ── -->
+      <!-- CALENDÁRIO -->
       <section class="view" data-view="calendario">
-        <div class="view-header">
-          <div>
-            <h2>Calendário Escolar 📅</h2>
-            <p class="text-muted">Datas importantes do bimestre.</p>
-          </div>
-        </div>
-        <div id="calendar-list" class="list-container"></div>
+        <div class="view-head"><h2>Calendário</h2><p>Datas importantes do bimestre</p></div>
+        <div id="calendar-list" class="list-stack"></div>
       </section>
 
-      <!-- ── TAREFAS ── -->
+      <!-- TAREFAS -->
       <section class="view" data-view="tarefas">
-        <div class="view-header">
-          <div>
-            <h2>Tarefas ✅</h2>
-            <p class="text-muted">Acompanhe seus trabalhos e prazos.</p>
-          </div>
+        <div class="view-head"><h2>Tarefas</h2><p>Acompanhe seus trabalhos e prazos</p></div>
+        <div class="filter-bar" id="task-filters">
+          <button class="filter-chip active" data-filter="todas">Todas</button>
+          <button class="filter-chip" data-filter="Pendente">Pendentes</button>
+          <button class="filter-chip" data-filter="Em andamento">Em andamento</button>
+          <button class="filter-chip" data-filter="Concluída">Concluídas</button>
         </div>
-        <div class="filters-row" id="task-filters">
-          <button class="chip active" data-filter="todas">Todas</button>
-          <button class="chip" data-filter="Pendente">Pendentes</button>
-          <button class="chip" data-filter="Em andamento">Em andamento</button>
-          <button class="chip" data-filter="Concluída">Concluídas</button>
-        </div>
-        <div id="task-list" class="list-container"></div>
+        <div id="task-list" class="list-stack"></div>
       </section>
 
-      <!-- ── AVISOS ── -->
+      <!-- AVISOS -->
       <section class="view" data-view="avisos">
-        <div class="view-header">
-          <div>
-            <h2>Avisos 📣</h2>
-            <p class="text-muted">Comunicados da escola e da coordenação.</p>
-          </div>
-        </div>
-        <div id="notice-list" class="list-container"></div>
+        <div class="view-head"><h2>Avisos</h2><p>Comunicados da escola e da coordenação</p></div>
+        <div id="notice-list" class="list-stack"></div>
       </section>
 
-      <!-- ── EVENTOS ── -->
+      <!-- EVENTOS -->
       <section class="view" data-view="eventos">
-        <div class="view-header">
-          <div>
-            <h2>Eventos 🎉</h2>
-            <p class="text-muted">Tudo que vai acontecer na escola.</p>
-          </div>
-        </div>
-        <div id="event-list" class="list-container"></div>
+        <div class="view-head"><h2>Eventos</h2><p>Tudo que vai acontecer na escola</p></div>
+        <div id="event-list" class="list-stack"></div>
       </section>
 
-      <!-- ── SUGESTÕES ── -->
+      <!-- SUGESTÕES -->
       <section class="view" data-view="sugestoes">
-        <div class="view-header">
-          <div>
-            <h2>Sugestões 💬</h2>
-            <p class="text-muted">Tem uma ideia para melhorar a escola? Conte para a gente!</p>
-          </div>
-        </div>
-        <div class="suggest-layout">
-          <div class="panel suggest-form-panel">
-            <div class="panel-header">
-              <h3>Enviar nova sugestão</h3>
-            </div>
+        <div class="view-head"><h2>Sugestões</h2><p>Envie ideias para melhorar a escola</p></div>
+        <div class="suggest-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Nova sugestão</h3></div>
             <form id="suggest-form" class="form-stack" novalidate>
               <div class="form-group">
-                <label for="sug-title">Título da sugestão</label>
+                <label>Título</label>
                 <input type="text" id="sug-title" placeholder="Ex: Mais opções na cantina" required />
               </div>
               <div class="form-group">
-                <label for="sug-cat">Categoria</label>
+                <label>Categoria</label>
                 <select id="sug-cat">
-                  <option value="Convivência">Convivência</option>
-                  <option value="Infraestrutura">Infraestrutura</option>
-                  <option value="Eventos">Eventos</option>
-                  <option value="Estudos">Estudos</option>
-                  <option value="Outros">Outros</option>
+                  <option>Convivência</option>
+                  <option>Infraestrutura</option>
+                  <option>Eventos</option>
+                  <option>Estudos</option>
+                  <option>Outros</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="sug-desc">Descrição</label>
-                <textarea id="sug-desc" rows="5" placeholder="Descreva sua ideia com detalhes..." required></textarea>
+                <label>Descrição</label>
+                <textarea id="sug-desc" rows="4" placeholder="Descreva sua ideia..." required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary btn-block">💬 Enviar sugestão</button>
+              <button type="submit" class="btn-violet-full">Enviar sugestão</button>
             </form>
           </div>
-
-          <div class="suggest-list-col">
-            <div class="suggest-list-header">
-              <h3>Sugestões da turma</h3>
-              <span class="count-chip" id="sug-count">0</span>
+          <div>
+            <div class="suggest-list-head">
+              <h3>Enviadas</h3>
+              <span class="count-badge" id="sug-count">0</span>
             </div>
-            <div id="suggest-list" class="list-container"></div>
+            <div id="suggest-list" class="list-stack"></div>
           </div>
         </div>
       </section>
 
-      <!-- ── PERFIL ── -->
+      <!-- PERFIL -->
       <section class="view" data-view="perfil">
-        <div class="view-header">
-          <div>
-            <h2>Perfil 👤</h2>
-            <p class="text-muted">Seu desempenho e conquistas.</p>
-          </div>
-        </div>
-        <div class="profile-layout">
-          <div class="panel profile-card">
-            <div class="profile-avatar-wrap">
-              <div class="profile-avatar">🧑‍🎓</div>
-              <div class="profile-status">● Online</div>
-            </div>
-            <h3 class="profile-name">Ana Beatriz Souza</h3>
-            <p class="text-muted">9º Ano B · Turma 2026</p>
+        <div class="view-head"><h2>Meu Perfil</h2><p>Seu desempenho e conquistas</p></div>
+        <div class="profile-grid">
+          <div class="panel profile-panel">
+            <div class="profile-avatar-big">HM</div>
+            <h3>Helena Martins</h3>
+            <p class="text-muted">9º Ano B · 2026</p>
             <div class="profile-divider"></div>
             <div class="profile-stats">
-              <div class="profile-stat">
-                <strong id="prof-conc">0</strong>
-                <span>Concluídas</span>
-              </div>
-              <div class="profile-stat">
-                <strong id="prof-sug">0</strong>
-                <span>Sugestões</span>
-              </div>
-              <div class="profile-stat">
-                <strong id="prof-org">0%</strong>
-                <span>Organização</span>
-              </div>
+              <div><strong id="prof-conc">0</strong><span>Concluídas</span></div>
+              <div><strong id="prof-sug">0</strong><span>Sugestões</span></div>
+              <div><strong id="prof-org">0%</strong><span>Organização</span></div>
             </div>
           </div>
-
-          <div class="profile-right">
-            <div class="panel">
-              <div class="panel-header">
-                <h3>🏆 Conquistas</h3>
-              </div>
-              <div class="achievements-grid" id="achievements-list">
-                <div class="achievement locked">
-                  <div class="ach-icon">🔥</div>
-                  <div class="ach-info">
-                    <strong>Sequência de 7 dias</strong>
-                    <small>Organize tarefas por 7 dias seguidos</small>
-                  </div>
-                  <div class="ach-lock">🔒</div>
-                </div>
-                <div class="achievement locked">
-                  <div class="ach-icon">⭐</div>
-                  <div class="ach-info">
-                    <strong>5 no prazo</strong>
-                    <small>Entregue 5 trabalhos antes do prazo</small>
-                  </div>
-                  <div class="ach-lock">🔒</div>
-                </div>
-                <div class="achievement locked">
-                  <div class="ach-icon">💬</div>
-                  <div class="ach-info">
-                    <strong>Primeira sugestão</strong>
-                    <small>Envie sua primeira sugestão para a escola</small>
-                  </div>
-                  <div class="ach-lock">🔒</div>
-                </div>
-                <div class="achievement locked">
-                  <div class="ach-icon">📅</div>
-                  <div class="ach-info">
-                    <strong>Nunca perdeu uma prova</strong>
-                    <small>Consulte o calendário regularmente</small>
-                  </div>
-                  <div class="ach-lock">🔒</div>
-                </div>
-              </div>
-            </div>
+          <div class="panel">
+            <div class="panel-header"><h3>🏆 Conquistas</h3></div>
+            <div id="achievements-list" class="achievements"></div>
           </div>
         </div>
       </section>
@@ -483,9 +386,7 @@
   </div>
 </div>
 
-<!-- TOAST -->
 <div id="toast" class="toast"></div>
-
 <script src="script.js"></script>
 </body>
 </html>

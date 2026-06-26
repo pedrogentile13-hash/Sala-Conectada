@@ -1,49 +1,37 @@
-/* ═══════════════════════════════════════════════
+/* ════════════════════════════════════════
    Sala Conectada — Desktop
-   script.js
-   Banco zerado: sem dados de exemplo.
-   Pronto para integração com backend.
-═══════════════════════════════════════════════ */
+   Banco zerado · pronto para backend
+════════════════════════════════════════ */
 
-// ─────────────────────────────────────────────
-// ESTADO DA APLICAÇÃO (banco zerado)
-// ─────────────────────────────────────────────
 const db = {
-  calendario: [],   // { titulo, data, categoria }
-  tarefas:    [],   // { id, materia, titulo, entrega, status }
-  avisos:     [],   // { titulo, autor, data, desc, importante }
-  eventos:    [],   // { nome, data, hora, local, desc }
-  sugestoes:  [],   // { titulo, categoria, desc, status }
+  calendario: [],
+  tarefas:    [],
+  avisos:     [],
+  eventos:    [],
+  sugestoes:  [],
 };
 
 let filtroTarefas = "todas";
-let nextTaskId    = 1;
 
-// ─────────────────────────────────────────────
-// UTILITÁRIOS
-// ─────────────────────────────────────────────
-const $ = (sel, ctx = document) => ctx.querySelector(sel);
-const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
-function esc(str) {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+/* ── DATA ── */
+function dataHoje() {
+  return new Date().toLocaleDateString("pt-BR", { weekday:"long", day:"numeric", month:"long" });
+}
+function dataHojeShort() {
+  const d = new Date();
+  const dia = d.toLocaleDateString("pt-BR", { weekday:"short" });
+  const num = d.getDate();
+  const mes = d.toLocaleDateString("pt-BR", { month:"long" });
+  return `${dia.charAt(0).toUpperCase()+dia.slice(1)}, ${num} de ${mes}`;
 }
 
-function hoje() {
-  return new Date().toLocaleDateString("pt-BR", {
-    weekday: "long", day: "numeric", month: "long", year: "numeric"
-  });
-}
-
-// ─────────────────────────────────────────────
-// TOAST
-// ─────────────────────────────────────────────
+/* ── TOAST ── */
 let toastTimer;
-function showToast(msg) {
+function toast(msg) {
   const el = $("#toast");
   el.textContent = msg;
   el.classList.add("visible");
@@ -51,30 +39,28 @@ function showToast(msg) {
   toastTimer = setTimeout(() => el.classList.remove("visible"), 2800);
 }
 
-// ─────────────────────────────────────────────
-// NAVEGAÇÃO
-// ─────────────────────────────────────────────
-const landing  = $("#landing");
-const appShell = $("#app");
+/* ── NAVEGAÇÃO ── */
+const landing = $("#landing");
+const appEl   = $("#app");
 
-const PAGE_TITLES = {
-  dashboard:  "Início",
-  calendario: "Calendário",
-  tarefas:    "Tarefas",
-  avisos:     "Avisos",
-  eventos:    "Eventos",
-  sugestoes:  "Sugestões",
-  perfil:     "Perfil",
+const TITLES = {
+  dashboard: ["Dashboard", "Resumo da sua semana escolar"],
+  calendario:["Calendário", "Datas importantes do bimestre"],
+  tarefas:   ["Tarefas", "Acompanhe seus trabalhos e prazos"],
+  avisos:    ["Avisos", "Comunicados da escola e da coordenação"],
+  eventos:   ["Eventos", "Tudo que vai acontecer na escola"],
+  sugestoes: ["Sugestões", "Contribua com ideias para melhorar a escola"],
+  perfil:    ["Meu Perfil", "Seu desempenho e conquistas"],
 };
 
 function goApp(view) {
   landing.classList.remove("show");
-  appShell.classList.add("show");
+  appEl.classList.add("show");
   navigateTo(view || "dashboard");
 }
 
 function goLanding() {
-  appShell.classList.remove("show");
+  appEl.classList.remove("show");
   landing.classList.add("show");
   window.scrollTo(0, 0);
 }
@@ -82,295 +68,174 @@ function goLanding() {
 function navigateTo(view) {
   $$(".view").forEach(v => v.classList.toggle("show", v.dataset.view === view));
   $$(".sb-item").forEach(b => b.classList.toggle("active", b.dataset.nav === view));
-  $$(".topbar-avatar[data-nav]").forEach(b => b.classList.toggle("active", b.dataset.nav === view));
-  const title = PAGE_TITLES[view] || view;
+  const [title, sub] = TITLES[view] || [view, ""];
   $("#topbar-title").textContent = title;
-  $(".views-container").scrollTop = 0;
+  $("#topbar-sub").textContent   = sub;
+  $(".view-container").scrollTop = 0;
 }
 
-// ─── Bind: botões [data-go] ───
-$$("[data-go]").forEach(el => {
+$$("[data-go]").forEach(el =>
   el.addEventListener("click", () => {
-    const target = el.dataset.go;
-    target === "landing" ? goLanding() : goApp(target);
-  });
-});
+    el.dataset.go === "landing" ? goLanding() : goApp(el.dataset.go);
+  })
+);
+$$("[data-nav]").forEach(el =>
+  el.addEventListener("click", () => navigateTo(el.dataset.nav))
+);
 
-// ─── Bind: nav items ───
-$$("[data-nav]").forEach(el => {
-  el.addEventListener("click", () => navigateTo(el.dataset.nav));
-});
-
-// ─── Sidebar collapse ───
-let collapsed = false;
-const sidebar = $("#sidebar");
-const sbToggle = $("#sb-toggle");
-
-sbToggle.addEventListener("click", () => {
-  collapsed = !collapsed;
-  sidebar.classList.toggle("collapsed", collapsed);
-});
-
-// ─────────────────────────────────────────────
-// DASHBOARD
-// ─────────────────────────────────────────────
+/* ── DASHBOARD ── */
 function updateDashboard() {
   const provas    = db.calendario.filter(c => c.categoria === "Prova").length;
   const pendentes = db.tarefas.filter(t => t.status !== "Concluída").length;
   const impAvisos = db.avisos.filter(a => a.importante).length;
-  const concluidas = db.tarefas.filter(t => t.status === "Concluída").length;
-  const total = db.tarefas.length;
-  const org = total > 0 ? Math.round((concluidas / total) * 100) : 0;
+  const concluidas= db.tarefas.filter(t => t.status === "Concluída").length;
+  const total     = db.tarefas.length;
+  const org       = total > 0 ? Math.round((concluidas / total) * 100) : 0;
 
   $("#stat-provas").textContent  = provas;
   $("#stat-tarefas").textContent = pendentes;
   $("#stat-avisos").textContent  = impAvisos;
   $("#stat-eventos").textContent = db.eventos.length;
+  $("#mini-conc").textContent    = concluidas;
+  $("#mini-pend").textContent    = pendentes;
+  $("#mini-sug").textContent     = db.sugestoes.length;
 
-  $("#mini-conc").textContent = concluidas;
-  $("#mini-pend").textContent = pendentes;
-  $("#mini-sug").textContent  = db.sugestoes.length;
-
-  // Badge de avisos na sidebar
-  const badge = $("#badge-avisos");
-  if (impAvisos > 0) {
-    badge.textContent = impAvisos;
-    badge.style.display = "block";
-  } else {
-    badge.style.display = "none";
-  }
-
-  // Donut de organização
-  const circumference = 314.16;
-  const offset = circumference - (org / 100) * circumference;
   const arc = $("#org-arc");
-  if (arc) arc.style.strokeDashoffset = offset;
+  if (arc) arc.style.strokeDashoffset = 314.16 - (org / 100) * 314.16;
   $("#org-pct").textContent = org + "%";
 
-  // Activity feed
-  renderActivityFeed(provas, concluidas, total, impAvisos);
+  const badge = $("#badge-tarefas");
+  if (pendentes > 0) { badge.textContent = pendentes; badge.style.display = ""; }
+  else               { badge.style.display = "none"; }
 
-  // Data
-  const dateEl = $("#dash-date");
-  if (dateEl) dateEl.textContent = "Hoje é " + hoje() + ".";
-}
+  const dateEl = $("#topbar-date-text");
+  if (dateEl) dateEl.textContent = dataHojeShort();
 
-function renderActivityFeed(provas, conc, total, avisos) {
   const feed = $("#activity-feed");
   const items = [];
+  if (total > 0)            items.push(`${concluidas} de ${total} tarefas concluídas`);
+  if (provas > 0)           items.push(`${provas} prova${provas>1?"s":""} marcada${provas>1?"s":""} no calendário`);
+  if (impAvisos > 0)        items.push(`${impAvisos} aviso${impAvisos>1?"s":""} importante${impAvisos>1?"s":""}`);
+  if (db.eventos.length > 0) items.push(`${db.eventos.length} evento${db.eventos.length>1?"s":""} próximo${db.eventos.length>1?"s":""}`);
 
-  if (total > 0)   items.push(`📝 ${conc} de ${total} tarefas concluídas`);
-  if (provas > 0)  items.push(`📅 ${provas} prova${provas > 1 ? "s" : ""} marcada${provas > 1 ? "s" : ""} no calendário`);
-  if (avisos > 0)  items.push(`📣 ${avisos} aviso${avisos > 1 ? "s" : ""} importante${avisos > 1 ? "s" : ""} da coordenação`);
-  if (db.eventos.length > 0) items.push(`🎉 ${db.eventos.length} evento${db.eventos.length > 1 ? "s" : ""} próximo${db.eventos.length > 1 ? "s" : ""}`);
-  if (db.sugestoes.length > 0) items.push(`💬 ${db.sugestoes.length} sugestão${db.sugestoes.length > 1 ? "ões" : ""} enviada${db.sugestoes.length > 1 ? "s" : ""}`);
-
-  if (items.length === 0) {
-    feed.innerHTML = `
-      <div class="empty-state">
-        <div class="es-icon">📋</div>
-        <h4>Nenhuma atividade ainda</h4>
-        <p>O resumo da semana aparecerá aqui quando houver dados cadastrados na plataforma.</p>
-      </div>`;
-    return;
-  }
-
-  feed.innerHTML = items.map(text => `
-    <div class="activity-item">
-      <div class="activity-dot"></div>
-      <span class="activity-text">${esc(text)}</span>
-    </div>`).join("");
+  feed.innerHTML = items.length
+    ? items.map(t => `<div class="activity-item"><div class="act-dot"></div><span>${esc(t)}</span></div>`).join("")
+    : `<div class="empty-state"><div class="es-icon">📋</div><h4>Nenhuma atividade ainda</h4><p>Os dados vão aparecer aqui quando cadastrados.</p></div>`;
 }
 
-// ─────────────────────────────────────────────
-// CALENDÁRIO
-// ─────────────────────────────────────────────
-const CAT_TAG = {
-  Prova:    "tag-prova",
-  Trabalho: "tag-trabalho",
-  Evento:   "tag-evento",
-  Reunião:  "tag-reuniao",
-};
+/* ── CALENDÁRIO ── */
+const CAT_TAG = { Prova:"tag-prova", Trabalho:"tag-trabalho", Evento:"tag-evento", Reunião:"tag-reuniao" };
 
 function renderCalendar() {
-  const container = $("#calendar-list");
-  if (db.calendario.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="es-icon">📅</div>
-        <h4>Nenhuma data cadastrada</h4>
-        <p>Datas de provas, trabalhos, eventos e reuniões aparecerão aqui quando forem adicionadas.</p>
-      </div>`;
+  const c = $("#calendar-list");
+  if (!db.calendario.length) {
+    c.innerHTML = `<div class="empty-state"><div class="es-icon">📅</div><h4>Nenhuma data cadastrada</h4><p>Datas de provas, trabalhos e eventos vão aparecer aqui.</p></div>`;
     return;
   }
-  container.innerHTML = db.calendario.map(c => `
+  c.innerHTML = db.calendario.map(i => `
     <div class="list-item">
-      <div class="item-body">
-        <h4>${esc(c.titulo)}</h4>
-      </div>
-      <div class="item-aside">
-        <span class="tag ${CAT_TAG[c.categoria] || "tag-cat"}">${esc(c.categoria)}</span>
-        <span class="item-date">📅 ${esc(c.data)}</span>
+      <div class="li-body"><h4>${esc(i.titulo)}</h4></div>
+      <div class="li-aside">
+        <span class="tag ${CAT_TAG[i.categoria]||"tag-cat"}">${esc(i.categoria)}</span>
+        <span class="li-date">📅 ${esc(i.data)}</span>
       </div>
     </div>`).join("");
 }
 
-// ─────────────────────────────────────────────
-// TAREFAS
-// ─────────────────────────────────────────────
-const STATUS_TAG = {
-  "Pendente":     "tag-pendente",
-  "Em andamento": "tag-andamento",
-  "Concluída":    "tag-concluida",
-};
+/* ── TAREFAS ── */
+const ST_TAG = { "Pendente":"tag-pendente","Em andamento":"tag-andamento","Concluída":"tag-concluida" };
 
 function renderTasks() {
-  const lista = filtroTarefas === "todas"
-    ? db.tarefas
-    : db.tarefas.filter(t => t.status === filtroTarefas);
-
-  const container = $("#task-list");
-
-  if (lista.length === 0) {
-    const msg = filtroTarefas === "todas"
-      ? "Nenhuma tarefa cadastrada ainda."
-      : `Nenhuma tarefa com status "${filtroTarefas}".`;
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="es-icon">✅</div>
-        <h4>${msg}</h4>
-        <p>As tarefas vão aparecer aqui quando forem adicionadas à plataforma.</p>
-      </div>`;
+  const lista = filtroTarefas === "todas" ? db.tarefas : db.tarefas.filter(t => t.status === filtroTarefas);
+  const c = $("#task-list");
+  if (!lista.length) {
+    c.innerHTML = `<div class="empty-state"><div class="es-icon">✅</div><h4>${filtroTarefas==="todas"?"Nenhuma tarefa cadastrada":`Sem tarefas "${filtroTarefas}"`}</h4><p>As tarefas aparecerão aqui quando adicionadas.</p></div>`;
     return;
   }
-
-  container.innerHTML = lista.map(t => `
-    <div class="list-item task-item ${t.status === "Concluída" ? "done" : ""}">
-      <div class="item-body">
-        <span class="subject-pill">${esc(t.materia)}</span>
+  c.innerHTML = lista.map(t => `
+    <div class="list-item ${t.status==="Concluída"?"task-done":""}">
+      <div class="li-body">
+        <span class="subj">${esc(t.materia)}</span>
         <h4>${esc(t.titulo)}</h4>
         <p>Entrega: ${esc(t.entrega)}</p>
       </div>
-      <div class="item-aside">
-        <span class="tag ${STATUS_TAG[t.status] || ""}">${esc(t.status)}</span>
-        <button
-          class="btn-done ${t.status === "Concluída" ? "done" : ""}"
-          data-task="${t.id}"
-          ${t.status === "Concluída" ? "disabled" : ""}>
-          ${t.status === "Concluída" ? "✓ Concluída" : "Marcar concluída"}
+      <div class="li-aside">
+        <span class="tag ${ST_TAG[t.status]||""}">${esc(t.status)}</span>
+        <button class="btn-done ${t.status==="Concluída"?"done":""}" data-task="${t.id}" ${t.status==="Concluída"?"disabled":""}>
+          ${t.status==="Concluída"?"✓ Feita":"Concluir"}
         </button>
       </div>
     </div>`).join("");
-
-  $$("[data-task]").forEach(btn =>
-    btn.addEventListener("click", () => completeTask(+btn.dataset.task))
-  );
+  $$("[data-task]").forEach(btn => btn.addEventListener("click", () => completeTask(+btn.dataset.task)));
 }
 
 function completeTask(id) {
-  const task = db.tarefas.find(t => t.id === id);
-  if (task && task.status !== "Concluída") {
-    task.status = "Concluída";
-    renderTasks();
-    updateDashboard();
-    updateProfile();
-    showToast("✅ Tarefa marcada como concluída!");
+  const t = db.tarefas.find(t => t.id === id);
+  if (t && t.status !== "Concluída") {
+    t.status = "Concluída";
+    renderTasks(); updateDashboard(); updateProfile();
+    toast("✅ Tarefa concluída!");
   }
 }
 
-// Filtros
-$$("#task-filters .chip").forEach(chip => {
+$$("#task-filters .filter-chip").forEach(chip =>
   chip.addEventListener("click", () => {
-    $$("#task-filters .chip").forEach(c => c.classList.remove("active"));
+    $$("#task-filters .filter-chip").forEach(c => c.classList.remove("active"));
     chip.classList.add("active");
     filtroTarefas = chip.dataset.filter;
     renderTasks();
-  });
-});
+  })
+);
 
-// ─────────────────────────────────────────────
-// AVISOS
-// ─────────────────────────────────────────────
+/* ── AVISOS ── */
 function renderNotices() {
-  const container = $("#notice-list");
-  if (db.avisos.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="es-icon">📣</div>
-        <h4>Nenhum aviso publicado</h4>
-        <p>Comunicados da escola e da coordenação aparecerão aqui quando forem publicados.</p>
-      </div>`;
+  const c = $("#notice-list");
+  if (!db.avisos.length) {
+    c.innerHTML = `<div class="empty-state"><div class="es-icon">📣</div><h4>Nenhum aviso publicado</h4><p>Comunicados da escola aparecerão aqui.</p></div>`;
     return;
   }
-  container.innerHTML = db.avisos.map(a => `
-    <div class="list-item ${a.importante ? "important" : ""}">
-      <div class="item-body">
-        <h4>
-          ${esc(a.titulo)}
-          ${a.importante ? `<span class="notice-badge">IMPORTANTE</span>` : ""}
-        </h4>
+  c.innerHTML = db.avisos.map(a => `
+    <div class="list-item ${a.importante?"notice-imp":""}">
+      <div class="li-body">
+        <h4>${esc(a.titulo)}${a.importante?`<span class="notice-imp-badge">IMPORTANTE</span>`:""}</h4>
         <p>${esc(a.desc)}</p>
-        <p style="margin-top:6px;font-size:12px;color:var(--muted)">✍️ ${esc(a.autor)}</p>
+        <p style="margin-top:5px;font-size:12px;color:var(--muted)">✍️ ${esc(a.autor)}</p>
       </div>
-      <div class="item-aside">
-        <span class="item-date">📅 ${esc(a.data)}</span>
-      </div>
+      <div class="li-aside"><span class="li-date">📅 ${esc(a.data)}</span></div>
     </div>`).join("");
 }
 
-// ─────────────────────────────────────────────
-// EVENTOS
-// ─────────────────────────────────────────────
+/* ── EVENTOS ── */
 function renderEvents() {
-  const container = $("#event-list");
-  if (db.eventos.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="es-icon">🎉</div>
-        <h4>Nenhum evento agendado</h4>
-        <p>Eventos, feiras, torneios e palestras aparecerão aqui quando forem adicionados.</p>
-      </div>`;
+  const c = $("#event-list");
+  if (!db.eventos.length) {
+    c.innerHTML = `<div class="empty-state"><div class="es-icon">🎉</div><h4>Nenhum evento agendado</h4><p>Eventos, palestras e atividades aparecerão aqui.</p></div>`;
     return;
   }
-  container.innerHTML = db.eventos.map(e => `
+  c.innerHTML = db.eventos.map(e => `
     <div class="list-item">
-      <div class="item-body">
-        <h4>🎉 ${esc(e.nome)}</h4>
+      <div class="li-body">
+        <h4>${esc(e.nome)}</h4>
         <p>${esc(e.desc)}</p>
-        <p class="event-location">📍 ${esc(e.local)} &nbsp;•&nbsp; ⏰ ${esc(e.hora)}</p>
+        <p style="margin-top:5px;font-size:12px;color:var(--muted)">📍 ${esc(e.local)} · ⏰ ${esc(e.hora)}</p>
       </div>
-      <div class="item-aside">
-        <span class="item-date">📅 ${esc(e.data)}</span>
-      </div>
+      <div class="li-aside"><span class="li-date">📅 ${esc(e.data)}</span></div>
     </div>`).join("");
 }
 
-// ─────────────────────────────────────────────
-// SUGESTÕES
-// ─────────────────────────────────────────────
+/* ── SUGESTÕES ── */
 function renderSuggestions() {
-  const container = $("#suggest-list");
-  const count     = $("#sug-count");
-
-  count.textContent = db.sugestoes.length;
-
-  if (db.sugestoes.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="es-icon">💬</div>
-        <h4>Nenhuma sugestão ainda</h4>
-        <p>Seja o primeiro a enviar uma ideia para melhorar a escola!</p>
-      </div>`;
+  const c = $("#suggest-list");
+  const badge = $("#sug-count");
+  if (badge) badge.textContent = db.sugestoes.length;
+  if (!db.sugestoes.length) {
+    c.innerHTML = `<div class="empty-state"><div class="es-icon">💬</div><h4>Nenhuma sugestão ainda</h4><p>Seja o primeiro a contribuir!</p></div>`;
     return;
   }
-
-  container.innerHTML = db.sugestoes.map(s => `
+  c.innerHTML = db.sugestoes.map(s => `
     <div class="list-item">
-      <div class="item-body">
-        <h4>${esc(s.titulo)}</h4>
-        <p>${esc(s.desc)}</p>
-      </div>
-      <div class="item-aside">
+      <div class="li-body"><h4>${esc(s.titulo)}</h4><p>${esc(s.desc)}</p></div>
+      <div class="li-aside">
         <span class="tag tag-cat">${esc(s.categoria)}</span>
         <span class="tag tag-analise">${esc(s.status)}</span>
       </div>
@@ -383,84 +248,43 @@ $("#suggest-form").addEventListener("submit", e => {
   const cat    = $("#sug-cat").value;
   const desc   = $("#sug-desc").value.trim();
   if (!titulo || !desc) return;
-
   db.sugestoes.unshift({ titulo, categoria: cat, desc, status: "Em análise" });
-  renderSuggestions();
-  updateDashboard();
-  updateProfile();
+  renderSuggestions(); updateDashboard(); updateProfile();
   e.target.reset();
-  showToast("💬 Sugestão enviada! Obrigado por contribuir.");
+  toast("💬 Sugestão enviada! Obrigado.");
 });
 
-// ─────────────────────────────────────────────
-// PERFIL
-// ─────────────────────────────────────────────
+/* ── PERFIL ── */
 function updateProfile() {
   const conc  = db.tarefas.filter(t => t.status === "Concluída").length;
   const total = db.tarefas.length;
   const org   = total > 0 ? Math.round((conc / total) * 100) : 0;
-
   $("#prof-conc").textContent = conc;
   $("#prof-sug").textContent  = db.sugestoes.length;
   $("#prof-org").textContent  = org + "%";
-
-  updateAchievements(conc);
+  renderAchievements(conc);
 }
 
-function updateAchievements(conc) {
-  const achievements = [
-    {
-      id: "streak",
-      icon: "🔥",
-      title: "Sequência de 7 dias",
-      desc: "Organize tarefas por 7 dias seguidos",
-      unlocked: false, // lógica futura com backend
-    },
-    {
-      id: "five-on-time",
-      icon: "⭐",
-      title: "5 no prazo",
-      desc: "Entregue 5 trabalhos antes do prazo",
-      unlocked: conc >= 5,
-    },
-    {
-      id: "first-sug",
-      icon: "💬",
-      title: "Primeira sugestão",
-      desc: "Envie sua primeira sugestão para a escola",
-      unlocked: db.sugestoes.length >= 1,
-    },
-    {
-      id: "calendar",
-      icon: "📅",
-      title: "Nunca perdeu uma prova",
-      desc: "Consulte o calendário regularmente",
-      unlocked: false, // lógica futura
-    },
+function renderAchievements(conc) {
+  const list = [
+    { icon:"🔥", title:"Sequência de 7 dias",      desc:"Organize tarefas por 7 dias seguidos",   unlocked: false },
+    { icon:"⭐", title:"5 no prazo",                desc:"Entregue 5 trabalhos no prazo",           unlocked: conc >= 5 },
+    { icon:"💬", title:"Primeira sugestão",         desc:"Envie sua primeira sugestão",             unlocked: db.sugestoes.length >= 1 },
+    { icon:"📅", title:"Nunca perdeu uma prova",    desc:"Consulte o calendário regularmente",      unlocked: false },
   ];
-
-  $("#achievements-list").innerHTML = achievements.map(a => `
-    <div class="achievement ${a.unlocked ? "unlocked" : "locked"}">
+  $("#achievements-list").innerHTML = list.map(a => `
+    <div class="achievement ${a.unlocked?"":"locked"}">
       <div class="ach-icon">${a.icon}</div>
-      <div class="ach-info">
-        <strong>${esc(a.title)}</strong>
-        <small>${esc(a.desc)}</small>
-      </div>
-      <div class="ach-lock">${a.unlocked ? "✅" : "🔒"}</div>
+      <div class="ach-info"><strong>${esc(a.title)}</strong><small>${esc(a.desc)}</small></div>
+      <div class="ach-lock">${a.unlocked?"✅":"🔒"}</div>
     </div>`).join("");
 }
 
-// ─────────────────────────────────────────────
-// INICIALIZAÇÃO
-// ─────────────────────────────────────────────
-function init() {
-  renderCalendar();
-  renderTasks();
-  renderNotices();
-  renderEvents();
-  renderSuggestions();
-  updateDashboard();
-  updateProfile();
-}
-
-init();
+/* ── INIT ── */
+(function init() {
+  const dateEl = $("#topbar-date-text");
+  if (dateEl) dateEl.textContent = dataHojeShort();
+  renderCalendar(); renderTasks(); renderNotices();
+  renderEvents(); renderSuggestions();
+  updateDashboard(); updateProfile();
+})();
