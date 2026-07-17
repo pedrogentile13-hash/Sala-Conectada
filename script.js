@@ -1,14 +1,48 @@
 /* ════════════════════════════════════════
    Sala Conectada — Desktop
-   Banco zerado · pronto para backend
 ════════════════════════════════════════ */
 
 const db = {
-  calendario: [],
-  tarefas:    [],
-  avisos:     [],
-  eventos:    [],
-  sugestoes:  [],
+  calendario: [
+    { id:1, titulo:"Prova de Matemática — Funções e Trigonometria", categoria:"Prova",    data:"28/07/2026" },
+    { id:2, titulo:"Entrega do Trabalho de História — Revolução Industrial", categoria:"Trabalho",  data:"01/08/2026" },
+    { id:3, titulo:"Interclasse 2026 — Quadra Poliesportiva", categoria:"Evento",    data:"04/08/2026" },
+    { id:4, titulo:"Prova de Biologia — Genética e Hereditariedade", categoria:"Prova",    data:"11/08/2026" },
+    { id:5, titulo:"Reunião de Pais e Mestres — 2º Bimestre", categoria:"Reunião",   data:"15/08/2026" },
+    { id:6, titulo:"Prova de Português — Interpretação e Redação", categoria:"Prova",    data:"19/08/2026" },
+    { id:7, titulo:"Feira Cultural — Pátio Principal", categoria:"Evento",    data:"22/08/2026" },
+    { id:8, titulo:"Entrega do Projeto de Ciências — Sustentabilidade", categoria:"Trabalho",  data:"29/08/2026" },
+  ],
+  tarefas: [
+    { id:1, materia:"Matemática",   titulo:"Lista de exercícios — Cap. 7 (Trigonometria)",      entrega:"25/07/2026", status:"Concluída"    },
+    { id:2, materia:"História",     titulo:"Resumo: Causas da Revolução Industrial",             entrega:"28/07/2026", status:"Concluída"    },
+    { id:3, materia:"Português",    titulo:"Redação dissertativa — Tema: Meio Ambiente",         entrega:"30/07/2026", status:"Em andamento" },
+    { id:4, materia:"Biologia",     titulo:"Mapa mental: Leis de Mendel",                       entrega:"01/08/2026", status:"Em andamento" },
+    { id:5, materia:"Física",       titulo:"Resolução: Exercícios de Cinemática Escalar",       entrega:"04/08/2026", status:"Pendente"     },
+    { id:6, materia:"Geografia",    titulo:"Pesquisa: Impactos das mudanças climáticas no BR",  entrega:"06/08/2026", status:"Pendente"     },
+    { id:7, materia:"Inglês",       titulo:"Reading comprehension — Unit 5 (Technology)",       entrega:"08/08/2026", status:"Pendente"     },
+    { id:8, materia:"Química",      titulo:"Relatório do experimento: Reações Ácido-Base",      entrega:"12/08/2026", status:"Pendente"     },
+  ],
+  avisos: [
+    { id:1, titulo:"Semana de Provas — Calendário Oficial 2º Bimestre",         desc:"As provas do 2º bimestre ocorrerão entre os dias 28/07 e 19/08. Confiram o calendário na secretaria ou pelo app. Presença obrigatória com documento de identificação.", autor:"Coordenação Pedagógica", data:"17/07/2026", importante:true  },
+    { id:2, titulo:"Interclasse 2026 — Inscrições abertas até 25/07",           desc:"As inscrições para o Interclasse estão abertas! Modalidades disponíveis: futebol, vôlei, basquete e xadrez. Procure o professor de Educação Física para se inscrever.", autor:"Dep. de Educação Física", data:"15/07/2026", importante:true  },
+    { id:3, titulo:"Feira Cultural — Turmas devem apresentar projetos até 20/08", desc:"Cada turma deverá apresentar ao menos um projeto na Feira Cultural. Os temas devem estar relacionados às disciplinas do bimestre. Orientações com os professores responsáveis.", autor:"Direção Escolar",       data:"14/07/2026", importante:false },
+    { id:4, titulo:"Novo horário da biblioteca — vigência imediata",             desc:"A biblioteca passa a funcionar de segunda a sexta, das 7h30 às 17h30. Empréstimos de até 3 livros por aluno com prazo de 15 dias.", autor:"Biblioteca Central",    data:"10/07/2026", importante:false },
+    { id:5, titulo:"Cardápio do Restaurante Escolar — Julho/Agosto",            desc:"O cardápio do restaurante foi renovado para o 2º semestre com mais opções vegetarianas e sem glúten. Consulte o mural da cantina ou acesse o site da escola.", autor:"Nutrição Escolar",      data:"08/07/2026", importante:false },
+  ],
+  eventos: [
+    { id:1, nome:"Interclasse 2026",                     desc:"Torneio esportivo entre as turmas com modalidades de futebol, vôlei, basquete e xadrez. Venha torcer e participar!", local:"Quadra Poliesportiva", hora:"08h00", data:"04/08/2026" },
+    { id:2, nome:"Feira Cultural",                       desc:"Apresentação de projetos interdisciplinares pelas turmas do Ensino Médio. Haverá exposição de arte, música ao vivo e culinária típica.", local:"Pátio Principal",       hora:"09h00", data:"22/08/2026" },
+    { id:3, nome:"Palestra: Saúde Mental na Adolescência", desc:"Palestra aberta com psicólogas convidadas sobre bem-estar emocional, ansiedade escolar e como pedir ajuda. Entrada franca.", local:"Auditório Principal",   hora:"14h00", data:"30/07/2026" },
+    { id:4, nome:"Oficina de Redação ENEM",              desc:"Oficina gratuita com professores especializados para treinar redação no formato ENEM. Vagas limitadas — inscreva-se na secretaria.", local:"Sala de Aulas 12",      hora:"10h00", data:"02/08/2026" },
+    { id:5, nome:"Reunião de Pais e Mestres",            desc:"Reunião semestral para entrega de boletins e conversa sobre o desempenho dos alunos. Presença dos responsáveis é obrigatória.", local:"Salão de Festas",       hora:"18h30", data:"15/08/2026" },
+    { id:6, nome:"Gincana do Conhecimento",              desc:"Competição por equipes com perguntas de todas as matérias. Premiação especial para os 3 primeiros lugares de cada nível.", local:"Ginásio Coberto",       hora:"13h00", data:"20/08/2026" },
+  ],
+  sugestoes: [
+    { id:1, titulo:"Mais tomadas e carregadores nas salas de estudo",  desc:"A biblioteca tem poucas tomadas. Muitos alunos precisam carregar o notebook e não conseguem estudar por muito tempo.", categoria:"Infraestrutura", status:"Em análise" },
+    { id:2, titulo:"Criação de um clube de xadrez e jogos de tabuleiro", desc:"Seria ótimo ter um espaço para jogar xadrez, War e outros jogos que estimulam o raciocínio. Poderia ser nas quartas no contra-turno.", categoria:"Atividades",     status:"Em análise" },
+    { id:3, titulo:"Bebedouros com água gelada no bloco B",            desc:"No bloco B só tem um bebedouro e a água não é gelada. Nos dias de calor é muito ruim. Pedimos a instalação de novos bebedouros.", categoria:"Infraestrutura", status:"Em análise" },
+  ],
 };
 
 let filtroTarefas = "todas";
