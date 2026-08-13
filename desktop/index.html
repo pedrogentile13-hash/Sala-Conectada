@@ -30,14 +30,14 @@
       <span>Sala Conectada</span>
     </a>
     <div class="ln-links">
-      <a href="#">Categorias</a>
-      <a href="#">Como funciona</a>
-      <a href="#">Para quem é</a>
-      <a href="#">Impacto</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#impacto">Impacto</a>
     </div>
     <div class="ln-actions">
       <button class="btn-outline-dark" data-go="dashboard">Entrar</button>
-      <button class="btn-blue" data-go="dashboard">
+      <button class="btn-blue" data-go="eventos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
         Ver eventos
       </button>
@@ -61,14 +61,14 @@
         Descubra, inscreva-se e nunca mais perca um evento.
       </p>
       <div class="hero-btns">
-        <button class="btn-orange" data-go="dashboard">
+        <button class="btn-orange" data-go="eventos">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
           Explorar eventos
         </button>
-        <button class="btn-ghost-dark">
+        <a class="btn-ghost-dark" href="#como-funciona">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
           Como funciona
-        </button>
+        </a>
       </div>
       <div class="hero-proof">
         <div class="proof-avatars">
@@ -82,13 +82,13 @@
     </div>
 
     <div class="hero-right">
-      <div class="event-card-float card-orange" style="top:0;right:120px">
+      <div class="event-card-float card-orange" style="top:0;right:210px">
         <div class="ecf-header orange-bg">
           <span class="ecf-tag">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             ESPORTE
           </span>
-          <div class="ecf-date"><span class="ecf-day">27</span><span class="ecf-month">JUN</span></div>
+          <div class="ecf-date"><span class="ecf-day">21</span><span class="ecf-month">AGO</span></div>
         </div>
         <div class="ecf-body">
           <h4>Interclasse 2026</h4>
@@ -97,13 +97,13 @@
         </div>
       </div>
 
-      <div class="event-card-float card-purple" style="top:80px;right:0">
+      <div class="event-card-float card-purple" style="top:180px;right:10px">
         <div class="ecf-header purple-bg">
           <span class="ecf-tag">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             CULTURAL
           </span>
-          <div class="ecf-date"><span class="ecf-day">04</span><span class="ecf-month">JUL</span></div>
+          <div class="ecf-date"><span class="ecf-day">28</span><span class="ecf-month">AGO</span></div>
         </div>
         <div class="ecf-body">
           <h4>Feira Cultural</h4>
@@ -112,24 +112,24 @@
         </div>
       </div>
 
-      <div class="event-card-float card-teal" style="bottom:80px;right:60px">
+      <div class="event-card-float card-teal" style="top:355px;right:160px">
         <div class="ecf-header teal-bg">
           <span class="ecf-tag">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             PALESTRA
           </span>
-          <div class="ecf-date"><span class="ecf-day">19</span><span class="ecf-month">JUN</span></div>
+          <div class="ecf-date"><span class="ecf-day">18</span><span class="ecf-month">AGO</span></div>
         </div>
         <div class="ecf-body">
           <h4>Saúde mental na adolescência</h4>
-          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Auditório · 10h00</p>
+          <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Auditório · 14h00</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CATEGORIES SCROLL -->
-  <div class="cat-strip">
+  <div class="cat-strip" id="categorias">
     <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Interclasse</div>
     <div class="cat-sep">•</div>
     <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Esporte</div>
@@ -140,6 +140,95 @@
     <div class="cat-sep">•</div>
     <div class="cat-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Campanhas</div>
   </div>
+
+  <!-- COMO FUNCIONA -->
+  <section class="ln-section" id="como-funciona">
+    <div class="ln-section-head">
+      <span class="ln-eyebrow">COMO FUNCIONA</span>
+      <h2>Três passos e a turma toda fica por dentro.</h2>
+      <p>Sem grupo de WhatsApp bagunçado, sem recado perdido no caderno.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>A escola publica</h3>
+        <p>Coordenação e professores cadastram provas, trabalhos, avisos e eventos num só painel.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>O aluno acompanha</h3>
+        <p>Tudo aparece organizado por data e categoria, com prazo e local. Nada mais se perde.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>A turma participa</h3>
+        <p>Alunos marcam tarefas como feitas, se inscrevem em eventos e enviam sugestões de melhoria.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="ln-section ln-section-alt" id="para-quem">
+    <div class="ln-section-head">
+      <span class="ln-eyebrow">PARA QUEM É</span>
+      <h2>Feito para quem vive a escola todo dia.</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon violet">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3>Alunos</h3>
+        <p>Enxergam provas, prazos e eventos numa tela só — e acompanham o próprio nível de organização.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon orange">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>Professores</h3>
+        <p>Publicam trabalhos e datas sem repetir o mesmo recado em cada turma.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Coordenação e famílias</h3>
+        <p>Comunicados importantes chegam a todos, com registro de data e autor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO -->
+  <section class="ln-section" id="impacto">
+    <div class="ln-section-head">
+      <span class="ln-eyebrow">IMPACTO</span>
+      <h2>Informação organizada muda a rotina.</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <strong>1 lugar</strong>
+        <span>em vez de mural, grupo e caderno de recados espalhados</span>
+      </div>
+      <div class="impact-card">
+        <strong>+320</strong>
+        <span>alunos do Colégio Horizonte acompanhando os eventos</span>
+      </div>
+      <div class="impact-card">
+        <strong>0 recado</strong>
+        <span>perdido — tudo fica registrado com data e responsável</span>
+      </div>
+      <div class="impact-card">
+        <strong>Voz ativa</strong>
+        <span>alunos enviam sugestões direto para a coordenação</span>
+      </div>
+    </div>
+    <div class="impact-cta">
+      <button class="btn-orange" data-go="dashboard">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+        Entrar na plataforma
+      </button>
+    </div>
+  </section>
 
   <footer class="ln-footer">
     <p>© 2026 Sala Conectada · Plataforma escolar</p>
@@ -154,7 +243,7 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="sb-brand">
+    <div class="sb-brand" data-go="landing" title="Voltar para a página inicial">
       <div class="logo-icon">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <rect x="2" y="2" width="7" height="7" rx="1.5" fill="white"/>
@@ -255,7 +344,7 @@
           </div>
           <div class="stat-card">
             <div class="stat-icon-wrap teal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <div><span class="stat-label">Eventos da semana</span><strong class="stat-val" id="stat-eventos">0</strong></div>
+            <div><span class="stat-label">Próximos eventos</span><strong class="stat-val" id="stat-eventos">0</strong></div>
           </div>
         </div>
 
@@ -289,6 +378,14 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="panel" style="margin-top:16px">
+          <div class="panel-header panel-header-row">
+            <h3>Próximos compromissos</h3>
+            <button class="link-btn" data-nav="calendario">Ver calendário completo →</button>
+          </div>
+          <div id="upcoming-list" class="upcoming"></div>
         </div>
       </section>
 

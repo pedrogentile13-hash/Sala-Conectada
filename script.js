@@ -4,39 +4,41 @@
 
 const db = {
   calendario: [
-    { id:1, titulo:"Prova de Matemática — Funções e Trigonometria", categoria:"Prova",    data:"28/07/2026" },
-    { id:2, titulo:"Entrega do Trabalho de História — Revolução Industrial", categoria:"Trabalho",  data:"01/08/2026" },
-    { id:3, titulo:"Interclasse 2026 — Quadra Poliesportiva", categoria:"Evento",    data:"04/08/2026" },
-    { id:4, titulo:"Prova de Biologia — Genética e Hereditariedade", categoria:"Prova",    data:"11/08/2026" },
-    { id:5, titulo:"Reunião de Pais e Mestres — 2º Bimestre", categoria:"Reunião",   data:"15/08/2026" },
-    { id:6, titulo:"Prova de Português — Interpretação e Redação", categoria:"Prova",    data:"19/08/2026" },
-    { id:7, titulo:"Feira Cultural — Pátio Principal", categoria:"Evento",    data:"22/08/2026" },
-    { id:8, titulo:"Entrega do Projeto de Ciências — Sustentabilidade", categoria:"Trabalho",  data:"29/08/2026" },
+    { id:1, titulo:"Palestra: Saúde Mental na Adolescência", categoria:"Evento",   data:"18/08/2026" },
+    { id:2, titulo:"Prova de Matemática — Funções e Trigonometria", categoria:"Prova",    data:"19/08/2026" },
+    { id:3, titulo:"Interclasse 2026 — Quadra Poliesportiva", categoria:"Evento",   data:"21/08/2026" },
+    { id:4, titulo:"Entrega do Trabalho de História — Revolução Industrial", categoria:"Trabalho", data:"24/08/2026" },
+    { id:5, titulo:"Prova de Biologia — Genética e Hereditariedade", categoria:"Prova",    data:"26/08/2026" },
+    { id:6, titulo:"Feira Cultural — Pátio Principal", categoria:"Evento",   data:"28/08/2026" },
+    { id:7, titulo:"Prova de Português — Interpretação e Redação", categoria:"Prova",    data:"02/09/2026" },
+    { id:8, titulo:"Reunião de Pais e Mestres — 2º Bimestre", categoria:"Reunião",  data:"04/09/2026" },
+    { id:9, titulo:"Entrega do Projeto de Ciências — Sustentabilidade", categoria:"Trabalho", data:"09/09/2026" },
   ],
   tarefas: [
-    { id:1, materia:"Matemática",   titulo:"Lista de exercícios — Cap. 7 (Trigonometria)",      entrega:"25/07/2026", status:"Concluída"    },
-    { id:2, materia:"História",     titulo:"Resumo: Causas da Revolução Industrial",             entrega:"28/07/2026", status:"Concluída"    },
-    { id:3, materia:"Português",    titulo:"Redação dissertativa — Tema: Meio Ambiente",         entrega:"30/07/2026", status:"Em andamento" },
-    { id:4, materia:"Biologia",     titulo:"Mapa mental: Leis de Mendel",                       entrega:"01/08/2026", status:"Em andamento" },
-    { id:5, materia:"Física",       titulo:"Resolução: Exercícios de Cinemática Escalar",       entrega:"04/08/2026", status:"Pendente"     },
-    { id:6, materia:"Geografia",    titulo:"Pesquisa: Impactos das mudanças climáticas no BR",  entrega:"06/08/2026", status:"Pendente"     },
-    { id:7, materia:"Inglês",       titulo:"Reading comprehension — Unit 5 (Technology)",       entrega:"08/08/2026", status:"Pendente"     },
-    { id:8, materia:"Química",      titulo:"Relatório do experimento: Reações Ácido-Base",      entrega:"12/08/2026", status:"Pendente"     },
+    { id:1, materia:"Matemática",   titulo:"Lista de exercícios — Cap. 7 (Trigonometria)",      entrega:"17/08/2026", status:"Concluída"    },
+    { id:2, materia:"História",     titulo:"Resumo: Causas da Revolução Industrial",            entrega:"18/08/2026", status:"Concluída"    },
+    { id:3, materia:"Artes",        titulo:"Releitura de obra modernista brasileira",           entrega:"18/08/2026", status:"Concluída"    },
+    { id:4, materia:"Ed. Física",   titulo:"Ficha de inscrição do Interclasse",                 entrega:"19/08/2026", status:"Concluída"    },
+    { id:5, materia:"Inglês",       titulo:"Reading comprehension — Unit 5 (Technology)",       entrega:"19/08/2026", status:"Concluída"    },
+    { id:6, materia:"Português",    titulo:"Redação dissertativa — Tema: Meio Ambiente",        entrega:"21/08/2026", status:"Em andamento" },
+    { id:7, materia:"Biologia",     titulo:"Mapa mental: Leis de Mendel",                       entrega:"24/08/2026", status:"Em andamento" },
+    { id:8, materia:"Física",       titulo:"Resolução: Exercícios de Cinemática Escalar",       entrega:"26/08/2026", status:"Pendente"     },
+    { id:9, materia:"Química",      titulo:"Relatório do experimento: Reações Ácido-Base",      entrega:"31/08/2026", status:"Pendente"     },
   ],
   avisos: [
-    { id:1, titulo:"Semana de Provas — Calendário Oficial 2º Bimestre",         desc:"As provas do 2º bimestre ocorrerão entre os dias 28/07 e 19/08. Confiram o calendário na secretaria ou pelo app. Presença obrigatória com documento de identificação.", autor:"Coordenação Pedagógica", data:"17/07/2026", importante:true  },
-    { id:2, titulo:"Interclasse 2026 — Inscrições abertas até 25/07",           desc:"As inscrições para o Interclasse estão abertas! Modalidades disponíveis: futebol, vôlei, basquete e xadrez. Procure o professor de Educação Física para se inscrever.", autor:"Dep. de Educação Física", data:"15/07/2026", importante:true  },
-    { id:3, titulo:"Feira Cultural — Turmas devem apresentar projetos até 20/08", desc:"Cada turma deverá apresentar ao menos um projeto na Feira Cultural. Os temas devem estar relacionados às disciplinas do bimestre. Orientações com os professores responsáveis.", autor:"Direção Escolar",       data:"14/07/2026", importante:false },
-    { id:4, titulo:"Novo horário da biblioteca — vigência imediata",             desc:"A biblioteca passa a funcionar de segunda a sexta, das 7h30 às 17h30. Empréstimos de até 3 livros por aluno com prazo de 15 dias.", autor:"Biblioteca Central",    data:"10/07/2026", importante:false },
-    { id:5, titulo:"Cardápio do Restaurante Escolar — Julho/Agosto",            desc:"O cardápio do restaurante foi renovado para o 2º semestre com mais opções vegetarianas e sem glúten. Consulte o mural da cantina ou acesse o site da escola.", autor:"Nutrição Escolar",      data:"08/07/2026", importante:false },
+    { id:1, titulo:"Semana de Provas — Calendário Oficial 2º Bimestre",          desc:"As provas do 2º bimestre ocorrerão entre os dias 19/08 e 02/09. Confiram o calendário na secretaria ou pelo app. Presença obrigatória com documento de identificação.", autor:"Coordenação Pedagógica", data:"12/08/2026", importante:true  },
+    { id:2, titulo:"Interclasse 2026 — Inscrições abertas até 19/08",            desc:"As inscrições para o Interclasse estão abertas! Modalidades disponíveis: futebol, vôlei, basquete e xadrez. Procure o professor de Educação Física para se inscrever.", autor:"Dep. de Educação Física", data:"11/08/2026", importante:true  },
+    { id:3, titulo:"Feira Cultural — Turmas devem entregar os projetos até 26/08", desc:"Cada turma deverá apresentar ao menos um projeto na Feira Cultural. Os temas devem estar relacionados às disciplinas do bimestre. Orientações com os professores responsáveis.", autor:"Direção Escolar",      data:"10/08/2026", importante:false },
+    { id:4, titulo:"Novo horário da biblioteca — vigência imediata",              desc:"A biblioteca passa a funcionar de segunda a sexta, das 7h30 às 17h30. Empréstimos de até 3 livros por aluno com prazo de 15 dias.", autor:"Biblioteca Central",    data:"06/08/2026", importante:false },
+    { id:5, titulo:"Cardápio do Restaurante Escolar — Agosto/Setembro",           desc:"O cardápio do restaurante foi renovado para o 2º semestre com mais opções vegetarianas e sem glúten. Consulte o mural da cantina ou acesse o site da escola.", autor:"Nutrição Escolar",      data:"03/08/2026", importante:false },
   ],
   eventos: [
-    { id:1, nome:"Interclasse 2026",                     desc:"Torneio esportivo entre as turmas com modalidades de futebol, vôlei, basquete e xadrez. Venha torcer e participar!", local:"Quadra Poliesportiva", hora:"08h00", data:"04/08/2026" },
-    { id:2, nome:"Feira Cultural",                       desc:"Apresentação de projetos interdisciplinares pelas turmas do Ensino Médio. Haverá exposição de arte, música ao vivo e culinária típica.", local:"Pátio Principal",       hora:"09h00", data:"22/08/2026" },
-    { id:3, nome:"Palestra: Saúde Mental na Adolescência", desc:"Palestra aberta com psicólogas convidadas sobre bem-estar emocional, ansiedade escolar e como pedir ajuda. Entrada franca.", local:"Auditório Principal",   hora:"14h00", data:"30/07/2026" },
-    { id:4, nome:"Oficina de Redação ENEM",              desc:"Oficina gratuita com professores especializados para treinar redação no formato ENEM. Vagas limitadas — inscreva-se na secretaria.", local:"Sala de Aulas 12",      hora:"10h00", data:"02/08/2026" },
-    { id:5, nome:"Reunião de Pais e Mestres",            desc:"Reunião semestral para entrega de boletins e conversa sobre o desempenho dos alunos. Presença dos responsáveis é obrigatória.", local:"Salão de Festas",       hora:"18h30", data:"15/08/2026" },
-    { id:6, nome:"Gincana do Conhecimento",              desc:"Competição por equipes com perguntas de todas as matérias. Premiação especial para os 3 primeiros lugares de cada nível.", local:"Ginásio Coberto",       hora:"13h00", data:"20/08/2026" },
+    { id:1, nome:"Palestra: Saúde Mental na Adolescência", desc:"Palestra aberta com psicólogas convidadas sobre bem-estar emocional, ansiedade escolar e como pedir ajuda. Entrada franca.", local:"Auditório Principal",   hora:"14h00", data:"18/08/2026" },
+    { id:2, nome:"Interclasse 2026",                       desc:"Torneio esportivo entre as turmas com modalidades de futebol, vôlei, basquete e xadrez. Venha torcer e participar!", local:"Quadra Poliesportiva", hora:"08h00", data:"21/08/2026" },
+    { id:3, nome:"Oficina de Redação ENEM",                desc:"Oficina gratuita com professores especializados para treinar redação no formato ENEM. Vagas limitadas — inscreva-se na secretaria.", local:"Sala de Aulas 12",      hora:"10h00", data:"25/08/2026" },
+    { id:4, nome:"Feira Cultural",                         desc:"Apresentação de projetos interdisciplinares pelas turmas do Ensino Médio. Haverá exposição de arte, música ao vivo e culinária típica.", local:"Pátio Principal",       hora:"09h00", data:"28/08/2026" },
+    { id:5, nome:"Reunião de Pais e Mestres",              desc:"Reunião semestral para entrega de boletins e conversa sobre o desempenho dos alunos. Presença dos responsáveis é obrigatória.", local:"Salão de Festas",       hora:"18h30", data:"04/09/2026" },
+    { id:6, nome:"Gincana do Conhecimento",                desc:"Competição por equipes com perguntas de todas as matérias. Premiação especial para os 3 primeiros lugares de cada nível.", local:"Ginásio Coberto",       hora:"13h00", data:"11/09/2026" },
   ],
   sugestoes: [
     { id:1, titulo:"Mais tomadas e carregadores nas salas de estudo",  desc:"A biblioteca tem poucas tomadas. Muitos alunos precisam carregar o notebook e não conseguem estudar por muito tempo.", categoria:"Infraestrutura", status:"Em análise" },
@@ -118,6 +120,17 @@ $$("[data-nav]").forEach(el =>
 );
 
 /* ── DASHBOARD ── */
+// "10/08/2026" → Date
+function parseBR(s) {
+  const [d, m, a] = String(s).split("/").map(Number);
+  return new Date(a, m - 1, d);
+}
+// Eventos que ainda não aconteceram
+function eventosProximos() {
+  const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+  return db.eventos.filter(e => parseBR(e.data) >= hoje).length;
+}
+
 function updateDashboard() {
   const provas    = db.calendario.filter(c => c.categoria === "Prova").length;
   const pendentes = db.tarefas.filter(t => t.status !== "Concluída").length;
@@ -129,7 +142,7 @@ function updateDashboard() {
   $("#stat-provas").textContent  = provas;
   $("#stat-tarefas").textContent = pendentes;
   $("#stat-avisos").textContent  = impAvisos;
-  $("#stat-eventos").textContent = db.eventos.length;
+  $("#stat-eventos").textContent = eventosProximos();
   $("#mini-conc").textContent    = concluidas;
   $("#mini-pend").textContent    = pendentes;
   $("#mini-sug").textContent     = db.sugestoes.length;
@@ -155,6 +168,43 @@ function updateDashboard() {
   feed.innerHTML = items.length
     ? items.map(t => `<div class="activity-item"><div class="act-dot"></div><span>${esc(t)}</span></div>`).join("")
     : `<div class="empty-state"><div class="es-icon">📋</div><h4>Nenhuma atividade ainda</h4><p>Os dados vão aparecer aqui quando cadastrados.</p></div>`;
+}
+
+/* ── PRÓXIMOS COMPROMISSOS (dashboard) ── */
+const MESES = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
+
+function renderUpcoming() {
+  const c = $("#upcoming-list");
+  if (!c) return;
+  const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+
+  const proximos = db.calendario
+    .filter(i => parseBR(i.data) >= hoje)
+    .sort((a, b) => parseBR(a.data) - parseBR(b.data))
+    .slice(0, 4);
+
+  if (!proximos.length) {
+    c.innerHTML = `<div class="empty-state"><div class="es-icon">📅</div><h4>Nada marcado por enquanto</h4><p>Os próximos compromissos aparecerão aqui.</p></div>`;
+    return;
+  }
+
+  c.innerHTML = proximos.map(i => {
+    const d = parseBR(i.data);
+    const dias = Math.round((d - hoje) / 86400000);
+    const quando = dias === 0 ? "Hoje" : dias === 1 ? "Amanhã" : `em ${dias} dias`;
+    return `
+      <div class="up-item">
+        <div class="up-date">
+          <span class="up-day">${d.getDate()}</span>
+          <span class="up-month">${MESES[d.getMonth()]}</span>
+        </div>
+        <div class="up-info">
+          <h4>${esc(i.titulo)}</h4>
+          <span class="up-when">${quando}</span>
+        </div>
+        <span class="tag ${CAT_TAG[i.categoria] || "tag-cat"}">${esc(i.categoria)}</span>
+      </div>`;
+  }).join("");
 }
 
 /* ── CALENDÁRIO ── */
@@ -319,6 +369,6 @@ function renderAchievements(conc) {
   const dateEl = $("#topbar-date-text");
   if (dateEl) dateEl.textContent = dataHojeShort();
   renderCalendar(); renderTasks(); renderNotices();
-  renderEvents(); renderSuggestions();
+  renderEvents(); renderSuggestions(); renderUpcoming();
   updateDashboard(); updateProfile();
 })();
